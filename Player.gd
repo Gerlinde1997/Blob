@@ -3,7 +3,7 @@ extends KinematicBody2D
 var velocity = Vector2()
 var facingDir = Vector2()
 
-var moveSpeed = 100
+var moveSpeed = 80
 
 func play_animation(anim_name):
 	if $AnimatedSprite.animation != anim_name:
