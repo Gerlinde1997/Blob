@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Alex_phone_16x16.png-3ec83e5655ce1cfea0a3a908e46fb469.stex"
+path="res://.import/2021-01-25_00.58.40.png-0516123816308dc386f909af4ac33837.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Alex_phone_16x16.png"
-dest_files=[ "res://.import/Alex_phone_16x16.png-3ec83e5655ce1cfea0a3a908e46fb469.stex" ]
+source_file="res://Sprites/grass_flowers64x64/2021-01-25_00.58.40.png"
+dest_files=[ "res://.import/2021-01-25_00.58.40.png-0516123816308dc386f909af4ac33837.stex" ]
 
 [params]
 
