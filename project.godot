@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Serene_Village"
+config/name="Blob"
 run/main_scene="res://Grass.tscn"
 config/icon="res://icon.png"
 
