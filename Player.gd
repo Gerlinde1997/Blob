@@ -2,8 +2,13 @@ extends KinematicBody2D
 
 var velocity = Vector2()
 var facingDir = Vector2()
+var current_position = Vector2()
+
 
 var moveSpeed = 80
+
+onready var rayCast = $RayCast2D
+var interactDist = 70
 
 func play_animation(anim_name):
 	if $AnimatedSprite.animation != anim_name:
@@ -26,6 +31,12 @@ func manage_animations():
 		play_animation("IdleDown")
 	elif facingDir.y == -1:
 		play_animation("IdleUp")
+
+func _process(delta):
+	current_position = get_position()
+	var scene = self.get_tree().get_current_scene().get_name()
+	if scene == "Grass" and current_position.y < 0:
+		Global.goto_scene("res://Stone.tscn")
 
 func _physics_process(delta):
 	velocity = Vector2()

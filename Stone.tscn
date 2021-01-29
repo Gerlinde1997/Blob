@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://zenva_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Stone.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SegmentShape2D" id=1]
 b = Vector2( 0, 944 )
@@ -66,4 +67,7 @@ icon = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 320, 800 )
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
