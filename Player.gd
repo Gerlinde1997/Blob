@@ -4,8 +4,8 @@ var velocity = Vector2()
 var facingDir = Vector2()
 var current_position = Vector2()
 
-
 var moveSpeed = 80
+onready var scene_name = SceneChanger.current_scene.get_name()
 
 onready var rayCast = $RayCast2D
 var interactDist = 70
@@ -34,9 +34,9 @@ func manage_animations():
 
 func _process(delta):
 	current_position = get_position()
-	var scene = self.get_tree().get_current_scene().get_name()
-	if scene == "Grass" and current_position.y < 0:
-		Global.goto_scene("res://Stone.tscn")
+
+	if scene_name == "Grass" and current_position.y < 0:
+		SceneChanger.goto_scene("res://Stone.tscn")
 
 func _physics_process(delta):
 	velocity = Vector2()

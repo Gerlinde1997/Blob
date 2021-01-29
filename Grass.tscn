@@ -1,8 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://zenva_tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://Grass.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SegmentShape2D" id=1]
@@ -22,7 +20,6 @@ b = Vector2( 5.62668e-05, 1288 )
 b = Vector2( 0, 1648 )
 
 [node name="Grass" type="Node2D"]
-script = ExtResource( 2 )
 
 [node name="TileMap_Ground" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -59,14 +56,5 @@ position = Vector2( 8, 1016 )
 rotation = -1.5708
 shape = SubResource( 5 )
 
-[node name="Button" type="Button" parent="."]
-margin_right = 76.0
-margin_bottom = 70.0
-icon = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 320, 64 )
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
