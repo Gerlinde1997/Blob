@@ -2,11 +2,12 @@ extends KinematicBody2D
 
 var velocity = Vector2()
 var facingDir = Vector2()
-var current_position = Vector2()
 
 var moveSpeed = 80
-onready var scene_name = SceneChanger.current_scene.get_name()
 
+var current_position
+
+onready var scene_name = SceneChanger.current_scene.get_name()
 onready var rayCast = $RayCast2D
 var interactDist = 70
 
@@ -34,9 +35,25 @@ func manage_animations():
 
 func _process(delta):
 	current_position = get_position()
-
-	if scene_name == "Grass" and current_position.y < 0:
-		SceneChanger.goto_scene("res://Stone.tscn")
+	var situation = [scene_name, true]
+	var grassToStoneLeft = ["Grass", current_position.y < 0 and (current_position.x > 280 and current_position.x < 360)]
+	var grassToStoneRight = ["Grass", current_position.y < 0 and (current_position.x > 640 and current_position.x < 768)]
+	var stoneToGrassLeft = ["Stone", current_position.y > 896 and (current_position.x > 280 and current_position.x < 360)]
+	var stoneToGrassRight = ["Stone", current_position.y > 896 and (current_position.x > 640 and current_position.x < 768)]
+	
+	match situation:
+		grassToStoneLeft:
+			PlayerGlobalVariables.player_pos = Vector2(320, 896)
+			SceneChanger.goto_scene("res://Stone.tscn")
+		grassToStoneRight:
+			PlayerGlobalVariables.player_pos = Vector2(704, 896)
+			SceneChanger.goto_scene("res://Stone.tscn")
+		stoneToGrassLeft:
+			PlayerGlobalVariables.player_pos = Vector2(320, 0)
+			SceneChanger.goto_scene("res://Grass.tscn")
+		stoneToGrassRight:
+			PlayerGlobalVariables.player_pos = Vector2(704, 0)
+			SceneChanger.goto_scene("res://Grass.tscn")
 
 func _physics_process(delta):
 	velocity = Vector2()

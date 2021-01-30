@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://zenva_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Grass.gd" type="Script" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SegmentShape2D" id=1]
@@ -10,16 +11,11 @@ b = Vector2( 0.115915, 0.0775251 )
 [sub_resource type="SegmentShape2D" id=2]
 b = Vector2( -0.00012207, 1016 )
 
-[sub_resource type="SegmentShape2D" id=3]
-b = Vector2( -1.14441e-05, 264 )
-
-[sub_resource type="SegmentShape2D" id=4]
-b = Vector2( 5.62668e-05, 1288 )
-
 [sub_resource type="SegmentShape2D" id=5]
 b = Vector2( 0, 1648 )
 
 [node name="Grass" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="TileMap_Ground" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -29,7 +25,7 @@ tile_data = PoolIntArray( 0, 16, 0, 1, 16, 0, 2, 16, 0, 3, 16, 0, 4, 20, 0, 5, 2
 [node name="TileMap_Above" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 format = 1
-tile_data = PoolIntArray( 327684, 63, 0, 327685, 63, 0, 327686, 63, 0, 327687, 63, 0, 327688, 63, 0, 327689, 63, 0, 327690, 63, 0, 327691, 63, 0, 327694, 63, 0, 327695, 63, 0, 327696, 63, 0, 327697, 63, 0, 327698, 63, 0, 327699, 63, 0, 327700, 63, 0, 327701, 63, 0 )
+tile_data = PoolIntArray( 0, 43, 0, 1, 45, 0, 2, 43, 0, 3, 45, 0, 6, 43, 0, 7, 45, 0, 8, 43, 0, 9, 45, 0, 12, 43, 0, 13, 45, 0, 14, 43, 0, 15, 45, 0, 16, 43, 0, 17, 45, 0, 18, 43, 0, 19, 45, 0, 20, 43, 0, 21, 45, 0, 22, 43, 0, 23, 45, 0, 24, 43, 0, 25, 43, 0, 327684, 63, 0, 327685, 63, 0, 327686, 63, 0, 327687, 63, 0, 327688, 63, 0, 327689, 63, 0, 327690, 63, 0, 327691, 63, 0, 327694, 63, 0, 327695, 63, 0, 327696, 63, 0, 327697, 63, 0, 327698, 63, 0, 327699, 63, 0, 327700, 63, 0, 327701, 63, 0 )
 
 [node name="Borders" type="StaticBody2D" parent="."]
 
@@ -40,16 +36,6 @@ shape = SubResource( 1 )
 [node name="right" type="CollisionShape2D" parent="Borders"]
 position = Vector2( 1656, 0 )
 shape = SubResource( 2 )
-
-[node name="up_left" type="CollisionShape2D" parent="Borders"]
-position = Vector2( 8, 8 )
-rotation = -1.5708
-shape = SubResource( 3 )
-
-[node name="up_right" type="CollisionShape2D" parent="Borders"]
-position = Vector2( 1656, 8 )
-rotation = 1.5708
-shape = SubResource( 4 )
 
 [node name="bottom" type="CollisionShape2D" parent="Borders"]
 position = Vector2( 8, 1016 )

@@ -21,6 +21,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+PlayerGlobalVariables="*res://Player_global_variables.gd"
 SceneChanger="*res://Scene_changer.gd"
 
 [input]

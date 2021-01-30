@@ -1,3 +1,5 @@
 extends Node2D
 
-onready var Global = $"/root/Global"
+func _ready():
+	if PlayerGlobalVariables.player_pos:
+		$Player.position = PlayerGlobalVariables.player_pos

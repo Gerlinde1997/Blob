@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://zenva_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Stone.gd" type="Script" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SegmentShape2D" id=1]
@@ -13,14 +14,8 @@ b = Vector2( 0, 944 )
 a = Vector2( -6.10352e-05, 1264 )
 b = Vector2( -3.8147e-06, 0 )
 
-[sub_resource type="SegmentShape2D" id=4]
-a = Vector2( 6.10352e-05, 256 )
-b = Vector2( 6.10352e-05, 0 )
-
-[sub_resource type="SegmentShape2D" id=5]
-b = Vector2( 0, 896 )
-
 [node name="Stone" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="TileMap_Ground" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -30,7 +25,7 @@ tile_data = PoolIntArray( -65536, 21, 0, -65535, 21, 0, -65534, 21, 0, -65533, 2
 [node name="TileMap_Above" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 format = 1
-tile_data = PoolIntArray( 17, 55, 0, 65552, 55, 0, 65553, 62, 0, 196610, 55, 0, 196611, 62, 0, 262146, 55, 0, 327692, 55, 0, 393228, 62, 0, 393229, 55, 0, 655366, 55, 0, 655367, 62, 0 )
+tile_data = PoolIntArray( 17, 55, 0, 65552, 55, 0, 65553, 62, 0, 196610, 55, 0, 196611, 62, 0, 262146, 55, 0, 327692, 55, 0, 393228, 62, 0, 393229, 55, 0, 655366, 55, 0, 655367, 62, 0, 851968, 63, 0, 851969, 63, 0, 851970, 63, 0, 851971, 63, 0, 851974, 63, 0, 851975, 63, 0, 851976, 63, 0, 851977, 63, 0, 851980, 63, 0, 851981, 63, 0, 851982, 63, 0, 851983, 63, 0, 851984, 63, 0, 851985, 63, 0, 851986, 63, 0, 851987, 63, 0 )
 
 [node name="Borders" type="StaticBody2D" parent="."]
 
@@ -47,15 +42,5 @@ position = Vector2( 8, -56 )
 rotation = -1.5708
 shape = SubResource( 3 )
 
-[node name="bottom_left" type="CollisionShape2D" parent="Borders"]
-position = Vector2( 8, 888 )
-rotation = -1.5708
-shape = SubResource( 4 )
-
-[node name="bottom_right" type="CollisionShape2D" parent="Borders"]
-position = Vector2( 1272, 888 )
-rotation = 1.5708
-shape = SubResource( 5 )
-
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 320, 800 )
+position = Vector2( 500, 0 )
