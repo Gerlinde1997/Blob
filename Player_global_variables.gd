@@ -1,3 +1,4 @@
 extends Node
 
-var player_pos = null
+var pos = null
+var animation = null
