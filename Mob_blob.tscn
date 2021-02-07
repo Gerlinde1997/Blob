@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Blob_AnimatedSprite.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Mob_blob.gd" type="Script" id=2]
+
+[node name="Mob_blob" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.980392, 0.376471, 0.0235294, 1 )
+scale = Vector2( 0.2, 0.2 )
+frames = ExtResource( 1 )
+animation = "IdleDown"
+frame = 1
+playing = true
+offset = Vector2( 8, -264 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2( 0.2, 0.2 )
+polygon = PoolVector2Array( -88, 120, 88, 120, 120, 88, 120, -40, 104, -72, 88, -88, 72, -104, 40, -120, -40, -120, -72, -104, -88, -88, -104, -72, -120, -40, -120, 88 )

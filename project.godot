@@ -23,6 +23,12 @@ config/icon="res://icon.png"
 
 PlayerGlobalVariables="*res://Player_global_variables.gd"
 SceneChanger="*res://Scene_changer.gd"
+MobGlobalVariables="*res://mob_global_variables.gd"
+PickablesGlobal="*res://Pickables_global_variables.gd"
+
+[display]
+
+window/size/resizable=false
 
 [input]
 
