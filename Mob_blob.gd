@@ -22,12 +22,14 @@ func _ready():
 
 func conversation(answer = ""):
 	manage_talking_animation()
+#	match quest_status:
+#		QuestStatus.NOT_STARTED:
 	match dialogue_state:
 		0:
 			dialogue_state = 1
 			dialoguePopup.mob = self
 			dialoguePopup.mob_name = self.name
-			dialoguePopup.dialogue = "Hello friend! I am {name}!".format({"name": self.name})
+			dialoguePopup.dialogue = "Hello friend! I am {name}! Do you need something?".format({"name": self.name})
 			dialoguePopup.answers = "[A] Yes   [B] No"
 			dialoguePopup.open()
 
@@ -72,7 +74,6 @@ func manage_animations():
 		play_animation("MoveUp")
 	elif velocity.y > 0:
 		play_animation("MoveDown")
-
 
 func _physics_process(delta):
 	var target = patrol_points[patrol_index]

@@ -8,16 +8,16 @@
 [ext_resource path="res://DialoguePopup.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Coin.tscn" type="PackedScene" id=7]
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 800, 96, 0, 0, 0, 0, 1104, 128, 0, 0, 0, 0, 1344, 224, 0, 0, 0, 0, 1504, 344, 0, 0, 0, 0, 1504, 560, 0, 0, 0, 0, 1168, 632, 0, 0, 0, 0, 896, 680, 0, 0, 0, 0, 704, 664, 0, 0, 0, 0, 352, 568, 0, 0, 0, 0, 136, 424, 0, 0, 0, 0, 152, 256, 0, 0, 0, 0, 400, 176, 0, 0, 0, 0, 656, 128, 0, 0, 0, 0, 800, 96 )
 }
 
-[sub_resource type="SegmentShape2D" id=1]
+[sub_resource type="SegmentShape2D" id=2]
 a = Vector2( 64, 0 )
 b = Vector2( -64, 0 )
 
-[sub_resource type="SegmentShape2D" id=2]
+[sub_resource type="SegmentShape2D" id=3]
 a = Vector2( 64, 0 )
 b = Vector2( -64, 0 )
 
@@ -47,7 +47,7 @@ __meta__ = {
 }
 
 [node name="MobPath" type="Path2D" parent="TileMap"]
-curve = SubResource( 3 )
+curve = SubResource( 1 )
 
 [node name="Doors" type="Node2D" parent="."]
 script = ExtResource( 3 )
@@ -60,14 +60,14 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Up_left_door"]
 position = Vector2( 320, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Down_left_door" type="Area2D" parent="Doors"]
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Down_left_door"]
 position = Vector2( 320, 1024 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 320, 64 )
@@ -90,14 +90,6 @@ custom_colors/font_color_hover = Color( 0.894118, 0.843137, 0.0823529, 1 )
 custom_colors/font_color_pressed = Color( 0.145098, 0.811765, 0.0431373, 1 )
 toggle_mode = true
 text = "inventory"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
-columns = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
