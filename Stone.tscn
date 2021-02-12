@@ -8,16 +8,16 @@
 [ext_resource path="res://Mob_blob.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Coin.tscn" type="PackedScene" id=7]
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 320, 584, 0, 0, 0, 0, 496, 592, 0, 0, 0, 0, 544, 640, 0, 0, 0, 0, 584, 696, 0, 0, 0, 0, 600, 784, 0, 0, 0, 0, 600, 848 )
 }
 
-[sub_resource type="SegmentShape2D" id=1]
+[sub_resource type="SegmentShape2D" id=2]
 a = Vector2( -64, 0 )
 b = Vector2( 64, 0 )
 
-[sub_resource type="SegmentShape2D" id=2]
+[sub_resource type="SegmentShape2D" id=3]
 a = Vector2( 64, -6.10352e-05 )
 b = Vector2( -64, -6.10352e-05 )
 
@@ -38,7 +38,7 @@ format = 1
 tile_data = PoolIntArray( -65536, 63, 0, -65535, 63, 0, -65534, 63, 0, -65533, 63, 0, -65530, 63, 0, -65529, 63, 0, -65528, 63, 0, -65527, 63, 0, -65526, 63, 0, 17, 55, 0, 65552, 55, 0, 65553, 62, 0, 196610, 55, 0, 196611, 62, 0, 262146, 55, 0, 327692, 55, 0, 393228, 62, 0, 393229, 55, 0, 655366, 55, 0, 655367, 62, 0, 851968, 63, 0, 851969, 63, 0, 851970, 63, 0, 851971, 63, 0, 851974, 63, 0, 851975, 63, 0, 851976, 63, 0, 851977, 63, 0, 851980, 63, 0, 851981, 63, 0, 851982, 63, 0, 851983, 63, 0, 851984, 63, 0, 851985, 63, 0, 851986, 63, 0, 851987, 63, 0 )
 
 [node name="MobPath" type="Path2D" parent="TileMap"]
-curve = SubResource( 3 )
+curve = SubResource( 1 )
 
 [node name="Doors_stone" type="Node2D" parent="."]
 script = ExtResource( 3 )
@@ -48,14 +48,14 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doors_stone/Left_Up"]
 position = Vector2( 320, -64 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Left_Down" type="Area2D" parent="Doors_stone"]
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doors_stone/Left_Down"]
 position = Vector2( 320, 896 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 320, 832 )

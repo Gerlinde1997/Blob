@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://zenva_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Grass.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Mob_blob.tscn" type="PackedScene" id=5]
 [ext_resource path="res://DialoguePopup.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Coin.tscn" type="PackedScene" id=7]
+[ext_resource path="res://InventoryPopup.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -80,6 +81,7 @@ position = Vector2( 800, 96 )
 [node name="DialoguePopup" parent="CanvasLayer" instance=ExtResource( 6 )]
 
 [node name="Button" type="Button" parent="CanvasLayer"]
+pause_mode = 2
 margin_left = 5.0
 margin_top = 512.0
 margin_right = 77.0
@@ -93,6 +95,8 @@ text = "inventory"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Popup" parent="CanvasLayer" instance=ExtResource( 9 )]
 
 [node name="CoinContainer" type="Node2D" parent="."]
 position = Vector2( 368, 248 )
@@ -123,6 +127,7 @@ position = Vector2( 1840, 0.000244141 )
 scale = Vector2( 1, 1 )
 [connection signal="body_entered" from="Doors/Up_left_door" to="Doors" method="_on_Up_left_door_body_entered"]
 [connection signal="body_entered" from="Doors/Down_left_door" to="Doors" method="_on_Down_left_door_body_entered"]
+[connection signal="toggled" from="CanvasLayer/Button" to="CanvasLayer/Popup" method="_on_Button_toggled"]
 [connection signal="body_entered" from="CoinContainer/Coin1" to="CoinContainer/Coin1" method="_on_Coin_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin2" to="CoinContainer/Coin2" method="_on_Coin_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin3" to="CoinContainer/Coin3" method="_on_Coin_body_entered"]
