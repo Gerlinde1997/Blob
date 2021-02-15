@@ -66,20 +66,32 @@ position = Vector2( 320, 584 )
 
 [node name="CoinContainer" type="Node2D" parent="."]
 
-[node name="Coin5" parent="CoinContainer" groups=[
+[node name="Coin1" parent="CoinContainer" groups=[
 "coins",
 ] instance=ExtResource( 7 )]
-position = Vector2( 216, 736 )
+position = Vector2( 224, 712 )
 
-[node name="Coin6" parent="CoinContainer" groups=[
+[node name="Coin2" parent="CoinContainer" groups=[
 "coins",
 ] instance=ExtResource( 7 )]
 position = Vector2( 168, 808 )
+
+[node name="Coin3" parent="CoinContainer" groups=[
+"coins",
+] instance=ExtResource( 7 )]
+position = Vector2( 288, 768 )
+
+[node name="Coin4" parent="CoinContainer" groups=[
+"coins",
+] instance=ExtResource( 7 )]
+position = Vector2( 336, 680 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DialoguePopup" parent="CanvasLayer" instance=ExtResource( 5 )]
 [connection signal="body_entered" from="Doors_stone/Left_Up" to="Doors_stone" method="_on_Left_Up_body_entered"]
 [connection signal="body_entered" from="Doors_stone/Left_Down" to="Doors_stone" method="_on_Left_Down_body_entered"]
-[connection signal="body_entered" from="CoinContainer/Coin5" to="CoinContainer/Coin5" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="CoinContainer/Coin6" to="CoinContainer/Coin6" method="_on_Coin_body_entered"]
+[connection signal="body_entered" from="CoinContainer/Coin1" to="CoinContainer/Coin1" method="_on_Coin_body_entered"]
+[connection signal="body_entered" from="CoinContainer/Coin2" to="CoinContainer/Coin2" method="_on_Coin_body_entered"]
+[connection signal="body_entered" from="CoinContainer/Coin3" to="CoinContainer/Coin3" method="_on_Coin_body_entered"]
+[connection signal="body_entered" from="CoinContainer/Coin4" to="CoinContainer/Coin4" method="_on_Coin_body_entered"]

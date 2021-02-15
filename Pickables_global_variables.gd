@@ -1,5 +1,5 @@
 extends Node
 
-# stock self.name of collected coins
+# stock NodePath of collected coins
 var picked_coins = []
 

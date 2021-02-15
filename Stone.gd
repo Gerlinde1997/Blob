@@ -11,5 +11,5 @@ func _ready():
 		$Player.position = PlayerGlobalVariables.pos
 
 	for coin in coins:
-		if coin.name in PickablesGlobal.picked_coins:
+		if coin.get_path() in PickablesGlobal.picked_coins:
 			coin.queue_free()

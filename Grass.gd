@@ -14,5 +14,5 @@ func _ready():
 #		$Orange.quest_status = MobGlobalVariables.quest_status
 
 	for coin in coins:
-		if coin.name in PickablesGlobal.picked_coins:
+		if coin.get_path() in PickablesGlobal.picked_coins:
 			coin.queue_free()

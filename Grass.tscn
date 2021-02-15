@@ -76,28 +76,6 @@ position = Vector2( 320, 64 )
 [node name="Orange" parent="." instance=ExtResource( 5 )]
 position = Vector2( 800, 96 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="DialoguePopup" parent="CanvasLayer" instance=ExtResource( 6 )]
-
-[node name="Button" type="Button" parent="CanvasLayer"]
-pause_mode = 2
-margin_left = 5.0
-margin_top = 512.0
-margin_right = 77.0
-margin_bottom = 532.0
-custom_colors/font_color_disabled = Color( 0.721569, 0.152941, 0.152941, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.894118, 0.843137, 0.0823529, 1 )
-custom_colors/font_color_pressed = Color( 0.145098, 0.811765, 0.0431373, 1 )
-toggle_mode = true
-text = "inventory"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Popup" parent="CanvasLayer" instance=ExtResource( 9 )]
-
 [node name="CoinContainer" type="Node2D" parent="."]
 position = Vector2( 368, 248 )
 scale = Vector2( 0.1, 0.1 )
@@ -125,10 +103,32 @@ scale = Vector2( 1, 1 )
 ] instance=ExtResource( 7 )]
 position = Vector2( 1840, 0.000244141 )
 scale = Vector2( 1, 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialoguePopup" parent="CanvasLayer" instance=ExtResource( 6 )]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+pause_mode = 2
+margin_left = 5.0
+margin_top = 512.0
+margin_right = 77.0
+margin_bottom = 532.0
+custom_colors/font_color_disabled = Color( 0.721569, 0.152941, 0.152941, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.894118, 0.843137, 0.0823529, 1 )
+custom_colors/font_color_pressed = Color( 0.145098, 0.811765, 0.0431373, 1 )
+toggle_mode = true
+text = "inventory"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource( 9 )]
 [connection signal="body_entered" from="Doors/Up_left_door" to="Doors" method="_on_Up_left_door_body_entered"]
 [connection signal="body_entered" from="Doors/Down_left_door" to="Doors" method="_on_Down_left_door_body_entered"]
-[connection signal="toggled" from="CanvasLayer/Button" to="CanvasLayer/Popup" method="_on_Button_toggled"]
 [connection signal="body_entered" from="CoinContainer/Coin1" to="CoinContainer/Coin1" method="_on_Coin_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin2" to="CoinContainer/Coin2" method="_on_Coin_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin3" to="CoinContainer/Coin3" method="_on_Coin_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin4" to="CoinContainer/Coin4" method="_on_Coin_body_entered"]
+[connection signal="toggled" from="CanvasLayer/Button" to="CanvasLayer/Inventory" method="_on_Button_toggled"]
