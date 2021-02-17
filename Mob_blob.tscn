@@ -11,7 +11,7 @@ modulate = Color( 0.980392, 0.376471, 0.0235294, 1 )
 scale = Vector2( 0.2, 0.2 )
 frames = ExtResource( 1 )
 animation = "IdleDown"
-frame = 2
+frame = 3
 playing = true
 offset = Vector2( 8, -264 )
 

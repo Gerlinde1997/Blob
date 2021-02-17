@@ -12,8 +12,8 @@ var moveSpeed = 20
 onready var dialoguePopup = $"../CanvasLayer/DialoguePopup"
 onready var player = $"../Player"
 
-enum QuestStatus {NOT_STARTED, STARTED, COMPLETED}
-var quest_status = QuestStatus.NOT_STARTED
+#enum QuestStatus {NOT_STARTED, STARTED, COMPLETED}
+#var quest_status = QuestStatus.NOT_STARTED
 var dialogue_state = 0
 
 func _ready():

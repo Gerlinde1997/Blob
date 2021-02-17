@@ -5,8 +5,6 @@ var facingDir = Vector2()
 
 var moveSpeed = 80
 
-var current_position
-
 onready var rayCast = $RayCast2D
 var interactDist = 500
 
