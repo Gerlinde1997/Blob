@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://coin-794 (1).png" type="Texture" id=1]
-[ext_resource path="res://Coin.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/coin-794 (1).png" type="Texture" id=1]
+[ext_resource path="res://scripts/Coin.gd" type="Script" id=2]
+
+
 
 [node name="Coin" type="Area2D"]
 scale = Vector2( 0.1, 0.1 )

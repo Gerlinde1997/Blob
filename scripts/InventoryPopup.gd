@@ -11,6 +11,7 @@ func close():
 	hide()
 
 func _on_Button_toggled(button_pressed):
+	# With left mouse button
 	if button_pressed:
 		open()
 	if !button_pressed:

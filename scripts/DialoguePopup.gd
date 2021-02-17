@@ -1,14 +1,14 @@
 extends PopupDialog
 
-var mob_name setget set_name
+var npc_name setget set_name
 var dialogue setget set_dialogue
 var answers setget set_answers
 
-var mob
+var npc
 
 func set_name(name):
-	mob_name = name
-	$ColorRect/MobName.text = name
+	npc_name = name
+	$ColorRect/NpcName.text = name
 
 func set_dialogue(mob_text):
 	dialogue = mob_text
@@ -31,14 +31,15 @@ func close():
 func _ready():
 	set_process_input(false)
 
-func _input(event):
-	if event is InputEventKey:
-		if event.scancode == KEY_A:
-			set_process_input(false)
-			mob.conversation("A")
-		if event.scancode == KEY_B:
-			set_process_input(false)
-			mob.conversation("B")
+func _process(delta):
+	# A key
+	if Input.is_action_just_pressed("answer_a"):
+		set_process_input(false)
+		npc.conversation("A")
+	# B key
+	if Input.is_action_just_pressed("answer_b"):
+		set_process_input(false)
+		npc.conversation("B")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	set_process_input(true)

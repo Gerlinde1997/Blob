@@ -3,7 +3,7 @@ extends KinematicBody2D
 var velocity = Vector2()
 var facingDir = Vector2()
 
-onready var patrol_path = $"../TileMap/MobPath"
+onready var patrol_path = $"../Map/NpcPath"
 var patrol_index = 0
 var patrol_points
 
@@ -27,8 +27,8 @@ func conversation(answer = ""):
 	match dialogue_state:
 		0:
 			dialogue_state = 1
-			dialoguePopup.mob = self
-			dialoguePopup.mob_name = self.name
+			dialoguePopup.npc = self
+			dialoguePopup.npc_name = self.name
 			dialoguePopup.dialogue = "Hello friend! I am {name}! Do you need something?".format({"name": self.name})
 			dialoguePopup.answers = "[A] Yes   [B] No"
 			dialoguePopup.open()
@@ -46,8 +46,10 @@ func conversation(answer = ""):
 					dialoguePopup.answers = "[A] Bye"
 					dialoguePopup.open()
 		2:
-			dialogue_state = 0
-			dialoguePopup.close()
+			match answer:
+				"A":
+					dialogue_state = 0
+					dialoguePopup.close()
 
 func play_animation(anim_name):
 	if $AnimatedSprite.animation != anim_name:
@@ -56,13 +58,13 @@ func play_animation(anim_name):
 func manage_talking_animation():
 	var playerAnimation = $"../Player/AnimatedSprite".animation
 	
-	if  playerAnimation == "IdleRight":
+	if  playerAnimation == "IdleRight" or playerAnimation == "MoveRight":
 		play_animation("IdleLeft")
-	elif playerAnimation == "IdleLeft":
+	elif playerAnimation == "IdleLeft" or playerAnimation == "MoveLeft":
 		play_animation("IdleRight")
-	elif playerAnimation == "IdleUp":
+	elif playerAnimation == "IdleUp" or playerAnimation == "MoveUp":
 		play_animation("IdleDown")
-	elif playerAnimation == "IdleUp":
+	elif playerAnimation == "IdleUp" or playerAnimation == "MoveDown":
 		play_animation("IdleUp")
 
 func manage_animations():
@@ -84,3 +86,6 @@ func _physics_process(delta):
 	velocity = (target - position).normalized()
 	velocity = move_and_slide(velocity * moveSpeed)
 	manage_animations()
+
+
+

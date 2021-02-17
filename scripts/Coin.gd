@@ -5,7 +5,7 @@ onready var player = $"../../Player"
 
 func _on_Coin_body_entered(body):
 	if body == player:
-		PlayerGlobalVariables.coins += 1
-		PickablesGlobal.picked_coins.append(self.get_path())
+		GlobalVariables.coins += 1
+		GlobalVariables.picked_coins.append(self.get_path())
 		#inventory.add_item()
 		self.queue_free()

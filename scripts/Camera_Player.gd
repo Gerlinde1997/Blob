@@ -1,6 +1,6 @@
 extends Camera2D
 
-onready var tilemap = $"../../TileMap/Ground"
+onready var tilemap = $"../../Map/TileMap/Ground"
 
 func set_camera_limits():
 	var scope = tilemap.get_used_rect()
