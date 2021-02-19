@@ -10,15 +10,15 @@
 [ext_resource path="res://inv_button.tscn" type="PackedScene" id=8]
 [ext_resource path="res://InventoryPopup.tscn" type="PackedScene" id=9]
 
+[sub_resource type="SegmentShape2D" id=1]
+a = Vector2( 64, 0 )
+b = Vector2( -64, 0 )
+
 [sub_resource type="SegmentShape2D" id=2]
 a = Vector2( 64, 0 )
 b = Vector2( -64, 0 )
 
-[sub_resource type="SegmentShape2D" id=3]
-a = Vector2( 64, 0 )
-b = Vector2( -64, 0 )
-
-[sub_resource type="Curve2D" id=1]
+[sub_resource type="Curve2D" id=3]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 800, 96, 0, 0, 0, 0, 1104, 128, 0, 0, 0, 0, 1344, 224, 0, 0, 0, 0, 1504, 344, 0, 0, 0, 0, 1504, 560, 0, 0, 0, 0, 1168, 632, 0, 0, 0, 0, 896, 680, 0, 0, 0, 0, 704, 664, 0, 0, 0, 0, 352, 568, 0, 0, 0, 0, 136, 424, 0, 0, 0, 0, 152, 256, 0, 0, 0, 0, 400, 176, 0, 0, 0, 0, 656, 128, 0, 0, 0, 0, 800, 96 )
 }
@@ -61,17 +61,17 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Doors/Up_left_door"]
 position = Vector2( 320, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Down_left_door" type="Area2D" parent="Map/Doors"]
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Doors/Down_left_door"]
 position = Vector2( 320, 1024 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="NpcPath" type="Path2D" parent="Map"]
-curve = SubResource( 1 )
+curve = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 320, 64 )

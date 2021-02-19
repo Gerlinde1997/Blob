@@ -32,14 +32,14 @@ func _ready():
 	set_process_input(false)
 
 func _process(delta):
-	# A key
-	if Input.is_action_just_pressed("answer_a"):
+	# 1 key
+	if Input.is_action_just_pressed("answer_1"):
 		set_process_input(false)
-		npc.conversation("A")
-	# B key
-	if Input.is_action_just_pressed("answer_b"):
+		npc.conversation(1)
+	# 2 key
+	if Input.is_action_just_pressed("answer_2"):
 		set_process_input(false)
-		npc.conversation("B")
+		npc.conversation(2)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	set_process_input(true)

@@ -20,34 +20,32 @@ func _ready():
 	if patrol_path:
 		patrol_points = patrol_path.curve.get_baked_points()
 
-func conversation(answer = ""):
+func conversation(answer = null):
 	manage_talking_animation()
-#	match quest_status:
-#		QuestStatus.NOT_STARTED:
 	match dialogue_state:
 		0:
 			dialogue_state = 1
 			dialoguePopup.npc = self
 			dialoguePopup.npc_name = self.name
 			dialoguePopup.dialogue = "Hello friend! I am {name}! Do you need something?".format({"name": self.name})
-			dialoguePopup.answers = "[A] Yes   [B] No"
+			dialoguePopup.answers = "[1] Yes   [2] No"
 			dialoguePopup.open()
 
 		1:
 			match answer:
-				"A":
+				1:
 					dialogue_state = 2
 					dialoguePopup.dialogue = "alrighty"
-					dialoguePopup.answers = "[A] BYE"
+					dialoguePopup.answers = "[1] BYE"
 					dialoguePopup.open()
-				"B":
+				2:
 					dialogue_state = 2
 					dialoguePopup.dialogue = "That's nice!"
-					dialoguePopup.answers = "[A] Bye"
+					dialoguePopup.answers = "[1] Bye"
 					dialoguePopup.open()
 		2:
 			match answer:
-				"A":
+				1:
 					dialogue_state = 0
 					dialoguePopup.close()
 
