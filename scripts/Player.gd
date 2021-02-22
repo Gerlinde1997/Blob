@@ -37,7 +37,8 @@ func manage_animations():
 	elif facingDir.y == -1:
 		play_animation("IdleUp")
 
-func _physics_process(delta):
+
+func _physics_process(_delta):
 	velocity = Vector2()
 
 	if Input.is_action_pressed("move_up"):
@@ -58,6 +59,6 @@ func _physics_process(delta):
 	move_and_slide(velocity * moveSpeed)
 	manage_animations()
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("npc_interact"):
 		try_interact()

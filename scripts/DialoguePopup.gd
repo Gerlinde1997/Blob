@@ -31,7 +31,7 @@ func close():
 func _ready():
 	set_process_input(false)
 
-func _process(delta):
+func _process(_delta):
 	# 1 key
 	if Input.is_action_just_pressed("answer_1"):
 		set_process_input(false)
@@ -41,5 +41,5 @@ func _process(delta):
 		set_process_input(false)
 		npc.conversation(2)
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	set_process_input(true)

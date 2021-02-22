@@ -75,7 +75,7 @@ func manage_animations():
 	elif velocity.y > 0:
 		play_animation("MoveDown")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var target = patrol_points[patrol_index]
 	if position.distance_to(target) < 1:
 		patrol_index = wrapi(patrol_index + 1, 0, patrol_points.size())
