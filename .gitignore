@@ -11,3 +11,6 @@ data_*/
 
 # Mac ignores
 .DS_Store
+
+# VSCode ignores
+.vscode/settings.json
