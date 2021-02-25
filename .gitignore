@@ -13,5 +13,4 @@ data_*/
 .DS_Store
 
 # VSCode ignores
-.vscode/settings.json
-.vscode/settings.json
+.vscode
