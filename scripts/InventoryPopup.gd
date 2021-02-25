@@ -1,6 +1,6 @@
 extends Popup
 
-var pickable = preload("res://inventory_coin.tscn")
+# var pickable = preload("res://inventory_coin.tscn")
 
 func open():
 	get_tree().paused = true
