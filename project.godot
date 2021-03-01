@@ -8,9 +8,32 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "State",
+"class": "InventoryState",
+"language": "GDScript",
+"path": "res://scripts/inventory_state.gd"
+}, {
+"base": "Node2D",
+"class": "State",
+"language": "GDScript",
+"path": "res://scripts/state.gd"
+}, {
+"base": "Reference",
+"class": "StateFactory",
+"language": "GDScript",
+"path": "res://scripts/state_factory.gd"
+}, {
+"base": "State",
+"class": "WalkingState",
+"language": "GDScript",
+"path": "res://scripts/walking_state.gd"
+} ]
 _global_script_class_icons={
-
+"InventoryState": "",
+"State": "",
+"StateFactory": "",
+"WalkingState": ""
 }
 
 [application]
