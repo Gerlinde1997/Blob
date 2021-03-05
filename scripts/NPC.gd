@@ -27,7 +27,7 @@ func conversation(answer = null):
 			dialogue_state = 1
 			dialoguePopup.npc = self
 			dialoguePopup.npc_name = self.name
-			dialoguePopup.dialogue = "Hello friend! I am {name}! Do you need something?".format({"name": self.name})
+			dialoguePopup.dialogue_text = "Hello friend! I am {name}! Do you need something?".format({"name": self.name})
 			dialoguePopup.answers = "[1] Yes   [2] No"
 			dialoguePopup.open()
 
@@ -35,12 +35,12 @@ func conversation(answer = null):
 			match answer:
 				1:
 					dialogue_state = 2
-					dialoguePopup.dialogue = "alrighty"
+					dialoguePopup.dialogue_text = "alrighty"
 					dialoguePopup.answers = "[1] BYE"
 					dialoguePopup.open()
 				2:
 					dialogue_state = 2
-					dialoguePopup.dialogue = "That's nice!"
+					dialoguePopup.dialogue_text = "That's nice!"
 					dialoguePopup.answers = "[1] Bye"
 					dialoguePopup.open()
 		2:

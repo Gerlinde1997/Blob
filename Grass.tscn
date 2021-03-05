@@ -2,7 +2,7 @@
 
 [ext_resource path="res://zenva_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/Doors.gd" type="Script" id=2]
-[ext_resource path="res://scripts/persistant_state.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Grass.gd" type="Script" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Npc.tscn" type="PackedScene" id=5]
 [ext_resource path="res://DialoguePopup.tscn" type="PackedScene" id=6]

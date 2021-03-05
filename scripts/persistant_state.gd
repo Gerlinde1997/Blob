@@ -9,12 +9,6 @@ func _ready():
     state_factory = StateFactory.new()
     change_state("walking")
 
-func _process(_delta):
-    pass
-    # if dialoguePopUp open()???
-        # set_inputmap()
-    # elif dialoguePopUp close()???
-        # set_inputmap()
 func set_inputmap():
     state.set_inputmap()
 
