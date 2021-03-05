@@ -26,25 +26,21 @@ func open():
 	$AnimationPlayer.play("ShowDialogue")
 
 func close():
-	set_inputmap_walking()
 	get_tree().paused = false
+	set_inputmap_walking()
 	hide()
 
 func _ready():
 	set_inputmap_walking()
 	set_process_input(false)
 
-func _process(_delta):
-	# 1 key
-	if Input.is_action_just_pressed("answer_1"):
+func _input(event):
+	if event.is_action_pressed("answer_1"):
 		set_process_input(false)
 		npc.conversation(1)
-	# 2 key
-	if Input.is_action_just_pressed("answer_2"):
+	if event.is_action_pressed("answer_2"):
 		set_process_input(false)
 		npc.conversation(2)
-	else:
-		pass
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	set_process_input(true)
