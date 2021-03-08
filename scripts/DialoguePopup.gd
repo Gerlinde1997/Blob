@@ -45,6 +45,10 @@ func _input(event):
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	set_process_input(true)
 
+func add_action_and_event(new_action, event):
+	InputMap.add_action(new_action)
+	InputMap.action_add_event(new_action, event)
+
 func set_inputmap_dialogue():
 	var non_active_actions = ["move_up", "move_down", "move_right", "move_left", "npc_interact"]
 	var state_actions = ["answer_1", "answer_2"]
@@ -58,14 +62,12 @@ func set_inputmap_dialogue():
 			if new_action == "answer_1":
 				var event = InputEventKey.new()
 				event.scancode = KEY_1
-				InputMap.add_action(new_action)
-				InputMap.action_add_event(new_action, event)
+				add_action_and_event(new_action, event)
 			
 			if new_action == "answer_2":
 				var event = InputEventKey.new()
 				event.scancode = KEY_2
-				InputMap.add_action(new_action)
-				InputMap.action_add_event(new_action, event)
+				add_action_and_event(new_action, event)
 
 func set_inputmap_walking():
 	var non_active_actions = ["answers_1", "answers_2"]
@@ -81,29 +83,24 @@ func set_inputmap_walking():
 			if new_action == "move_up":
 				var event = InputEventKey.new()
 				event.scancode = KEY_W
-				InputMap.add_action(new_action)
-				InputMap.action_add_event(new_action, event)
+				add_action_and_event(new_action, event)
 			
 			elif new_action == "move_down":
 				var event = InputEventKey.new()
 				event.scancode = KEY_S
-				InputMap.add_action(new_action)
-				InputMap.action_add_event(new_action, event)
+				add_action_and_event(new_action, event)
 			
 			elif new_action == "move_right":
 				var event = InputEventKey.new()
 				event.scancode = KEY_D
-				InputMap.add_action(new_action)
-				InputMap.action_add_event(new_action, event)
+				add_action_and_event(new_action, event)
 			
 			elif new_action == "move_left":
 				var event = InputEventKey.new()
 				event.scancode = KEY_A
-				InputMap.add_action(new_action)
-				InputMap.action_add_event(new_action, event)
+				add_action_and_event(new_action, event)
 			
 			elif new_action == "npc_interact":
 				var event = InputEventKey.new()
 				event.scancode = KEY_SPACE
-				InputMap.add_action(new_action)
-				InputMap.action_add_event(new_action, event)
+				add_action_and_event(new_action, event)

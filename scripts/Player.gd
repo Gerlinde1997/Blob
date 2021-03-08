@@ -60,5 +60,5 @@ func _physics_process(_delta):
 	manage_animations()
 
 func _process(_delta):
-	if Input.is_action_pressed("npc_interact"):
+	if Input.is_action_just_pressed("npc_interact"):
 		try_interact()
