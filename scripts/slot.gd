@@ -7,18 +7,15 @@ var def_style: StyleBoxFlat = null
 var empty_style: StyleBoxFlat = null
 
 
-var ItemClass = preload("res://Item.tscn")
+var Item = preload("res://Item.tscn")
 var item = null
+var slot_index
 
 func _ready():
 	def_style = StyleBoxFlat.new()
 	empty_style = StyleBoxFlat.new()
 	def_style.bg_color = def_color
 	empty_style.bg_color = empty_color
-
-	if randi() % 2 == 0:
-		item = ItemClass.instance()
-		add_child(item)
 	refresh_style()
 
 func refresh_style():
@@ -40,4 +37,13 @@ func putIntoSlot(new_item):
 	var inventoryNode = find_parent("Inventory")
 	inventoryNode.remove_child(item)
 	add_child(item)
+	refresh_style()
+
+func init_item(item_name, item_quantity):
+	if item == null:
+		item = Item.instance()
+		add_child(item)
+		item.set_item(item_name, item_quantity)
+	else:
+		item.set_item(item_name, item_quantity)
 	refresh_style()

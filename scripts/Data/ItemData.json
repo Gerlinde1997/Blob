@@ -1,13 +1,12 @@
 {
-    "Yellow block":{
-        "ItemCategory": "Coin",
+    "Coin":{
+        "ItemCategory": "Pickables",
         "StackSize": 99,
         "Description": "A coin for buying ColorItems by NPCs."
     },
-    "Blue block":{
+    "BlueColor":{
         "ItemCategory": "ColorItem",
-        "StackSize": 2,
-        "AddHealth": 5,
+        "StackSize": 1,
         "Discription": "Blue color, one of the collectables."
     }
 

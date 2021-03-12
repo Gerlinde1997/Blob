@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://zenva_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/Doors.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Npc.tscn" type="PackedScene" id=5]
 [ext_resource path="res://DialoguePopup.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Coin.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Inventory.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/CanvasLayer.gd" type="Script" id=9]
 
 [sub_resource type="SegmentShape2D" id=1]
 a = Vector2( 64, 0 )
@@ -18,7 +20,7 @@ b = Vector2( -64, 0 )
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 800, 96, 0, 0, 0, 0, 1104, 128, 0, 0, 0, 0, 1344, 224, 0, 0, 0, 0, 1504, 344, 0, 0, 0, 0, 1504, 560, 0, 0, 0, 0, 1168, 632, 0, 0, 0, 0, 896, 680, 0, 0, 0, 0, 704, 664, 0, 0, 0, 0, 352, 568, 0, 0, 0, 0, 136, 424, 0, 0, 0, 0, 152, 256, 0, 0, 0, 0, 400, 176, 0, 0, 0, 0, 656, 128, 0, 0, 0, 0, 800, 96 )
+"points": PoolVector2Array( 0, 0, 0, 0, 640, 128, 0, 0, 0, 0, 792, 200, 0, 0, 0, 0, 824, 320, 0, 0, 0, 0, 832, 456, 0, 0, 0, 0, 712, 504, 0, 0, 0, 0, 536, 504, 0, 0, 0, 0, 360, 480, 0, 0, 0, 0, 224, 456, 0, 0, 0, 0, 152, 408, 0, 0, 0, 0, 176, 296, 0, 0, 0, 0, 272, 248, 0, 0, 0, 0, 392, 200, 0, 0, 0, 0, 512, 168, 0, 0, 0, 0, 640, 128 )
 }
 
 [node name="Grass" type="Node2D"]
@@ -75,40 +77,43 @@ curve = SubResource( 3 )
 position = Vector2( 320, 64 )
 
 [node name="Orange" parent="." instance=ExtResource( 5 )]
-position = Vector2( 800, 96 )
+position = Vector2( 640, 128 )
 
 [node name="CoinContainer" type="Node2D" parent="."]
-position = Vector2( 368, 248 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="Coin1" parent="CoinContainer" groups=[
 "coins",
 ] instance=ExtResource( 7 )]
-position = Vector2( -320, 400 )
+position = Vector2( 2480, 1760 )
 scale = Vector2( 1, 1 )
 
 [node name="Coin2" parent="CoinContainer" groups=[
 "coins",
 ] instance=ExtResource( 7 )]
-position = Vector2( 1280, -1200 )
+position = Vector2( 2160, 1280 )
 scale = Vector2( 1, 1 )
 
 [node name="Coin3" parent="CoinContainer" groups=[
 "coins",
 ] instance=ExtResource( 7 )]
-position = Vector2( -1280, -720 )
+position = Vector2( 3200, 1440 )
 scale = Vector2( 1, 1 )
 
 [node name="Coin4" parent="CoinContainer" groups=[
 "coins",
 ] instance=ExtResource( 7 )]
-position = Vector2( 1840, 0.000244141 )
+position = Vector2( 4240, 1120 )
 scale = Vector2( 1, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 9 )
 
 [node name="DialoguePopup" parent="CanvasLayer" instance=ExtResource( 6 )]
 visible = true
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource( 8 )]
+visible = false
 [connection signal="body_entered" from="Map/Doors/Up_left_door" to="Map/Doors" method="_on_Up_left_door_body_entered"]
 [connection signal="body_entered" from="Map/Doors/Down_left_door" to="Map/Doors" method="_on_Down_left_door_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin1" to="CoinContainer/Coin1" method="_on_Coin_body_entered"]
