@@ -1,6 +1,7 @@
 extends Node
 
 var item_data: Dictionary
+# dialougue data ?
 
 func _ready():
 	item_data = LoadData("res://scripts/Data/ItemData.json")

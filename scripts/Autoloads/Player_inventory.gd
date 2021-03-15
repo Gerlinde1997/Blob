@@ -2,13 +2,10 @@ extends Node
 
 const SlotClass = preload("res://scripts/slot.gd")
 const ItemClass = preload("res://scripts/Item.gd")
-const NUM_INVENTORY_SLOTS = 16
+const NUM_INVENTORY_SLOTS = 12
 
 var inventory = {
 	# slot_index: [item_name, item_quantity]
-	0: ["BlueColor", 1],
-	1: ["BlueColor", 1],
-	2: ["BlueColor", 1]
 }
 
 func add_item(item_name, item_quantity):
