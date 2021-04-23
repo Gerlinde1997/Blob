@@ -48,6 +48,8 @@ func conversation(answer = null):
 				1:
 					dialogue_state = 0
 					dialoguePopup.close()
+				_:
+					dialoguePopup.set_process_input(true)
 
 func play_animation(anim_name):
 	if $AnimatedSprite.animation != anim_name:

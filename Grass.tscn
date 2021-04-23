@@ -110,6 +110,7 @@ scale = Vector2( 1, 1 )
 script = ExtResource( 9 )
 
 [node name="DialoguePopup" parent="CanvasLayer" instance=ExtResource( 6 )]
+visible = true
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource( 8 )]
 visible = false
