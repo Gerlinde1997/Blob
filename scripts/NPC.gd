@@ -20,6 +20,9 @@ func _ready():
 	if patrol_path:
 		patrol_points = patrol_path.curve.get_baked_points()
 
+# func interact_menu():
+# 	$"../CanvasLayer/InteractMenu".show_menu()
+
 func conversation(answer = null):
 	manage_talking_animation()
 	match dialogue_state:

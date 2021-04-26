@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/InteractMenu.gd" type="Script" id=1]
+
+[node name="InteractMenu" type="Control"]
+margin_right = 72.0
+margin_bottom = 64.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="Control" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button1" type="Button" parent="Buttons"]
+margin_right = 72.0
+margin_bottom = 20.0
+text = "talk"
+
+[node name="Button2" type="Button" parent="Buttons"]
+margin_top = 24.0
+margin_right = 72.0
+margin_bottom = 44.0
+text = "exchange"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
