@@ -10,46 +10,162 @@ var patrol_points
 var moveSpeed = 20
 
 onready var dialoguePopup = $"../CanvasLayer/DialoguePopup"
-#onready var player = $"../Player"
 
-#enum QuestStatus {NOT_STARTED, STARTED, COMPLETED}
-#var quest_status = QuestStatus.NOT_STARTED
+enum QuestStatus {NOT_STARTED, STARTED, COMPLETED}
+enum CoinStatus {NOT_ENOUGH, ENOUGH}
+var quest_status = QuestStatus.NOT_STARTED
+var coin_status = CoinStatus.NOT_ENOUGH
 var dialogue_state = 0
 
 func _ready():
 	if patrol_path:
 		patrol_points = patrol_path.curve.get_baked_points()
 
+func set_coin_status():
+	if GlobalVariables.coins >= 2:
+		coin_status = CoinStatus.ENOUGH
+	else:
+		coin_status = CoinStatus.NOT_ENOUGH
+
 func conversation(answer = null):
 	manage_talking_animation()
-	match dialogue_state:
-		0:
-			dialogue_state = 1
-			dialoguePopup.npc = self
-			dialoguePopup.npc_name = self.name
-			dialoguePopup.dialogue_text = "Hello friend! I am {name}! Do you need something?".format({"name": self.name})
-			dialoguePopup.answers = "[1] Yes   [2] No"
-			dialoguePopup.open()
+	set_coin_status()
+	match quest_status:
+		QuestStatus.NOT_STARTED:
+			match dialogue_state:
+				0:
+					dialogue_state = 1
+					dialoguePopup.npc = self
+					dialoguePopup.npc_name = self.name
+					dialoguePopup.dialogue_text = "Hello friend! I am {name}! Do you want to buy my colour?".format({"name": self.name})
+					dialoguePopup.answers = "[1] Yes   [2] No"
+					dialoguePopup.open()
 
-		1:
-			match answer:
 				1:
-					dialogue_state = 2
-					dialoguePopup.dialogue_text = "alrighty"
-					dialoguePopup.answers = "[1] BYE"
-					dialoguePopup.open()
+					match coin_status:
+						CoinStatus.NOT_ENOUGH:
+							match answer:
+								1:
+									dialogue_state = 2
+									quest_status = QuestStatus.STARTED
+									dialoguePopup.dialogue_text = "Sorry, you don't have enough coins. See you later!"
+									dialoguePopup.answers = "[1] I try to find more! Bye"
+									dialoguePopup.open()
+
+								2:
+									dialogue_state = 2
+									quest_status = QuestStatus.STARTED
+									dialoguePopup.dialogue_text = "See you later!"
+									dialoguePopup.answers = "[1] Bye!"
+									dialoguePopup.open()
+
+						CoinStatus.ENOUGH:
+							match answer:
+								1:
+									dialogue_state = 2
+									quest_status = QuestStatus.COMPLETED
+									dialoguePopup.dialogue_text = "Here you are!"
+									dialoguePopup.answers = "[1] Thank you very much! Byebye"
+									dialoguePopup.open()
+									GlobalVariables.coins -= 2
+									GlobalVariables.colors.append(self.name)
+
+								2:
+									dialogue_state = 2
+									dialoguePopup.dialogue_text = "See you later!"
+									dialoguePopup.answers = "[1] Bye!"
+									dialoguePopup.open()
+
 				2:
-					dialogue_state = 2
-					dialoguePopup.dialogue_text = "That's nice!"
-					dialoguePopup.answers = "[1] Bye"
+					match answer:
+						1:
+							dialogue_state = 0
+							dialoguePopup.close()
+						_:
+							dialoguePopup.set_process_input(true)
+			
+		QuestStatus.STARTED:
+			match dialogue_state:
+				0:
+					dialogue_state = 1
+					dialoguePopup.npc = self
+					dialoguePopup.npc_name = self.name
+					dialoguePopup.dialogue_text = "Hello again! Do you want to buy my colour now?".format({"name": self.name})
+					dialoguePopup.answers = "[1] Yes   [2] No"
 					dialoguePopup.open()
-		2:
-			match answer:
+				
 				1:
-					dialogue_state = 0
-					dialoguePopup.close()
-				_:
-					dialoguePopup.set_process_input(true)
+					match coin_status:
+						CoinStatus.NOT_ENOUGH:
+							match answer:
+								1:
+									dialogue_state = 2
+									quest_status = QuestStatus.STARTED
+									dialoguePopup.dialogue_text = "Sorry, you don't have enough coins. See you later!"
+									dialoguePopup.answers = "[1] I try to find more! Bye"
+									dialoguePopup.open()
+
+								2:
+									dialogue_state = 2
+									quest_status = QuestStatus.STARTED
+									dialoguePopup.dialogue_text = "See you later!"
+									dialoguePopup.answers = "[1] Bye!"
+									dialoguePopup.open()
+
+						CoinStatus.ENOUGH:
+							match answer:
+								1:
+									dialogue_state = 2
+									quest_status = QuestStatus.COMPLETED
+									dialoguePopup.dialogue_text = "Here you are!"
+									dialoguePopup.answers = "[1] Thank you very much! Byebye"
+									dialoguePopup.open()
+									GlobalVariables.coins -= 2
+									GlobalVariables.colors.append(self.name)
+									
+								2:
+									dialogue_state = 2
+									quest_status = QuestStatus.STARTED
+									dialoguePopup.dialogue_text = "See you later!"
+									dialoguePopup.answers = "[1] Bye!"
+									dialoguePopup.open()
+
+				2:
+					match answer:
+						1:
+							dialogue_state = 0
+							dialoguePopup.close()
+						_:
+							dialoguePopup.set_process_input(true)
+
+		QuestStatus.COMPLETED:
+			match dialogue_state:
+				0:
+					dialogue_state = 2
+					dialoguePopup.npc = self
+					dialoguePopup.npc_name = self.name
+					dialoguePopup.dialogue_text = "Hi! Have fun with my colour!".format({"name": self.name})
+					dialoguePopup.answers = "[1] Thanks, bye!"
+					dialoguePopup.open()
+
+				1:
+					dialogue_state = 2
+					dialoguePopup.npc = self
+					dialoguePopup.npc_name = self.name
+					dialoguePopup.dialogue_text = "Hi! Have fun with my colour!".format({"name": self.name})
+					dialoguePopup.answers = "[1] Thanks, bye!"
+					dialoguePopup.open()
+
+				2:
+					match answer:
+						1:
+							dialogue_state = 0
+							dialoguePopup.close()
+						_:
+							dialoguePopup.set_process_input(true)
+
+
+			
 
 func play_animation(anim_name):
 	if $AnimatedSprite.animation != anim_name:

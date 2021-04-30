@@ -1,0 +1,101 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/coin-794 (1).png" type="Texture" id=1]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=2]
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 360.0
+margin_bottom = 112.0
+color = Color( 1, 1, 1, 0.235294 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coins" type="TextureRect" parent="Background"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 264.0
+margin_bottom = 264.0
+rect_scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Count" type="Label" parent="Background"]
+margin_left = 88.0
+margin_top = 24.0
+margin_right = 104.0
+margin_bottom = 40.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Colors" type="Control" parent="."]
+margin_left = 160.0
+margin_top = 56.0
+margin_right = 344.0
+margin_bottom = 80.0
+
+[node name="Red" type="ColorRect" parent="Colors"]
+margin_right = 24.0
+margin_bottom = 24.0
+color = Color( 1, 0, 0, 0.509804 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Orange" type="ColorRect" parent="Colors"]
+margin_left = 32.0
+margin_right = 56.0
+margin_bottom = 24.0
+color = Color( 0.909804, 0.509804, 0.0431373, 0.509804 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yellow" type="ColorRect" parent="Colors"]
+margin_left = 64.0
+margin_right = 88.0
+margin_bottom = 24.0
+color = Color( 0.968627, 0.909804, 0.0470588, 0.509804 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Green" type="ColorRect" parent="Colors"]
+margin_left = 96.0
+margin_right = 120.0
+margin_bottom = 24.0
+color = Color( 0.482353, 0.972549, 0.0352941, 0.509804 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blue" type="ColorRect" parent="Colors"]
+margin_left = 128.0
+margin_right = 152.0
+margin_bottom = 24.0
+color = Color( 0.0509804, 0.533333, 0.917647, 0.509804 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Purple" type="ColorRect" parent="Colors"]
+margin_left = 160.0
+margin_right = 184.0
+margin_bottom = 24.0
+color = Color( 0.454902, 0.0941176, 0.976471, 0.509804 )

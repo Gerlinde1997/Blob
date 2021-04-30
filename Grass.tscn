@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://zenva_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/Doors.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Npc.tscn" type="PackedScene" id=5]
 [ext_resource path="res://DialoguePopup.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Coin.tscn" type="PackedScene" id=7]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SegmentShape2D" id=1]
 a = Vector2( 64, 0 )
@@ -107,6 +108,8 @@ scale = Vector2( 1, 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DialoguePopup" parent="CanvasLayer" instance=ExtResource( 6 )]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 8 )]
 [connection signal="body_entered" from="Map/Doors/Up_left_door" to="Map/Doors" method="_on_Up_left_door_body_entered"]
 [connection signal="body_entered" from="Map/Doors/Down_left_door" to="Map/Doors" method="_on_Down_left_door_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin1" to="CoinContainer/Coin1" method="_on_Coin_body_entered"]

@@ -6,13 +6,11 @@ extends Node
 var pos = null
 var animation = null
 var coins = 0
+var colors = []
 
-
-# Pickables variables
 # stock NodePath of collected coins
 var picked_coins = []
 
 
-# NPC variables
+# NPC variables per NPC ??!?!?!
 #?var quest_status = null
-#?var inventory = null
