@@ -10,7 +10,7 @@ var patrol_points
 var moveSpeed = 20
 
 onready var dialoguePopup = $"../CanvasLayer/DialoguePopup"
-onready var player = $"../Player"
+#onready var player = $"../Player"
 
 #enum QuestStatus {NOT_STARTED, STARTED, COMPLETED}
 #var quest_status = QuestStatus.NOT_STARTED
@@ -19,9 +19,6 @@ var dialogue_state = 0
 func _ready():
 	if patrol_path:
 		patrol_points = patrol_path.curve.get_baked_points()
-
-# func interact_menu():
-# 	$"../CanvasLayer/InteractMenu".show_menu()
 
 func conversation(answer = null):
 	manage_talking_animation()

@@ -14,8 +14,6 @@ func try_interact():
 	if rayCast.is_colliding():
 		if target.has_method("conversation"):
 			target.conversation()
-		# if target.has_method("interact_menu"):
-		# 	target.interact_menu()
 
 func play_animation(anim_name):
 	if $AnimatedSprite.animation != anim_name:

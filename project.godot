@@ -24,7 +24,6 @@ config/icon="res://icon.png"
 SceneChanger="*res://scripts/Autoloads/Scene_changer.gd"
 GlobalVariables="*res://scripts/Autoloads/global_variables.gd"
 JsonData="*res://scripts/Autoloads/JSONData.gd"
-PlayerInventory="*res://scripts/Autoloads/Player_inventory.gd"
 
 [display]
 
