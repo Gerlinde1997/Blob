@@ -166,8 +166,6 @@ func conversation(answer = null):
 							dialoguePopup.set_process_input(true)
 
 
-			
-
 func play_animation(anim_name):
 	if $AnimatedSprite.animation != anim_name:
 		$AnimatedSprite.play(anim_name)
