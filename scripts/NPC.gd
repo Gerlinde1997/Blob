@@ -3,7 +3,8 @@ extends KinematicBody2D
 var velocity = Vector2()
 var facingDir = Vector2()
 
-onready var patrol_path = $"../Map/NpcPath"
+onready var patrol_path_node = "../Map/{name}Path".format({"name": self.name})
+onready var patrol_path = get_node(patrol_path_node)
 var patrol_index = 0
 var patrol_points
 
