@@ -104,13 +104,13 @@ points = PoolVector2Array( 31.8622, 18.8297, 48.6071, 29.0627, 53.9562, 45.3425,
 [sub_resource type="ConvexPolygonShape2D" id=13]
 points = PoolVector2Array( 31.6297, 18.8822, 41.1649, 20.7428, 47.6769, 29.1152, 53.0259, 40.7436, 53.2585, 50.5115, 40.9324, 59.3491, 25.5829, 59.5816, 13.7219, 52.1395, 9.30315, 41.9064, 17.9082, 29.3478 )
 
-[sub_resource type="ConvexPolygonShape2D" id=15]
+[sub_resource type="ConvexPolygonShape2D" id=14]
 points = PoolVector2Array( 13, 21, 48, 22, 49, 64, 13, 64 )
 
-[sub_resource type="ConvexPolygonShape2D" id=16]
+[sub_resource type="ConvexPolygonShape2D" id=15]
 points = PoolVector2Array( 18, 19, 49, 19, 47, 64, 16, 64 )
 
-[sub_resource type="ConvexPolygonShape2D" id=14]
+[sub_resource type="ConvexPolygonShape2D" id=16]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 25.4434, 64, 25.4434 )
 
 [resource]
@@ -985,14 +985,14 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 25.4434, 64, 25.4434 )
 55/navigation_offset = Vector2( 0, 0 )
 55/shape_offset = Vector2( 0, 0 )
 55/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-55/shape = SubResource( 15 )
+55/shape = SubResource( 14 )
 55/shape_one_way = false
 55/shape_one_way_margin = 1.0
 55/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 15 ),
+"shape": SubResource( 14 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 55/z_index = 0
@@ -1090,14 +1090,14 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 25.4434, 64, 25.4434 )
 62/navigation_offset = Vector2( 0, 0 )
 62/shape_offset = Vector2( 0, 0 )
 62/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-62/shape = SubResource( 16 )
+62/shape = SubResource( 15 )
 62/shape_one_way = false
 62/shape_one_way_margin = 1.0
 62/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 16 ),
+"shape": SubResource( 15 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 62/z_index = 0
@@ -1111,14 +1111,14 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 25.4434, 64, 25.4434 )
 63/navigation_offset = Vector2( 0, 0 )
 63/shape_offset = Vector2( 0, 0 )
 63/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-63/shape = SubResource( 14 )
+63/shape = SubResource( 16 )
 63/shape_one_way = false
 63/shape_one_way_margin = 1.0
 63/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 14 ),
+"shape": SubResource( 16 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 63/z_index = 0
