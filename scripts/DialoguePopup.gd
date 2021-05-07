@@ -28,6 +28,7 @@ func open():
 func close():
 	get_tree().paused = false
 	set_inputmap_walking()
+	
 	hide()
 
 func _ready():
