@@ -4,6 +4,7 @@ onready var count = $Background/Count
 onready var color_rects = $Colors.get_children()
 
 var color_name_list = []
+var collected = 0
 
 var Red = Color(1, 0, 0, 0.2)
 var	Orange = Color(0.9, 0.5, 0, 0.2)
@@ -33,7 +34,7 @@ func update_colors():
 func update_coin_count():
 	var amount = GlobalVariables.coins
 	count.text = str(amount)
-
+	
 func _ready():
 	set_colors()
 	get_color_names()
@@ -41,3 +42,6 @@ func _ready():
 func _process(_delta):
 	update_colors()
 	update_coin_count()
+
+	if GlobalVariables.colors.size() == 6:
+		SceneChanger.goto_scene("res://End.tscn")

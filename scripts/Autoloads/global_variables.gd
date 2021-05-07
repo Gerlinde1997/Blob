@@ -6,12 +6,11 @@ extends Node
 var pos = null
 var animation = null
 var coins = 0
+
 # name of NPC...
 var colors = []
 
+var quest_status_by_npc = {"Red": 0, "Orange": 0, "Yellow": 0, "Green": 0, "Blue": 0, "Purple": 0}
+
 # stock NodePath of collected coins
 var picked_coins = []
-
-
-# NPC variables per NPC ??!?!?!
-#?var quest_status = null

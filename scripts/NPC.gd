@@ -14,8 +14,8 @@ onready var dialoguePopup = $"../CanvasLayer/DialoguePopup"
 
 enum QuestStatus {NOT_STARTED, STARTED, COMPLETED}
 enum CoinStatus {NOT_ENOUGH, ENOUGH}
-var quest_status = QuestStatus.NOT_STARTED
-var coin_status = CoinStatus.NOT_ENOUGH
+var quest_status
+var coin_status
 var dialogue_state = 0
 
 func _ready():
@@ -28,9 +28,18 @@ func set_coin_status():
 	else:
 		coin_status = CoinStatus.NOT_ENOUGH
 
+func set_quest_status(name):
+	if GlobalVariables.quest_status_by_npc[name] == 0:
+		quest_status = QuestStatus.NOT_STARTED
+	elif GlobalVariables.quest_status_by_npc[name] == 1:
+		quest_status = QuestStatus.STARTED
+	elif GlobalVariables.quest_status_by_npc[name] == 2:
+		quest_status = QuestStatus.COMPLETED
+
 func conversation(answer = null):
 	manage_talking_animation()
 	set_coin_status()
+	set_quest_status(self.name)
 	match quest_status:
 		QuestStatus.NOT_STARTED:
 			match dialogue_state:
@@ -49,6 +58,7 @@ func conversation(answer = null):
 								1:
 									dialogue_state = 2
 									quest_status = QuestStatus.STARTED
+									GlobalVariables.quest_status_by_npc[self.name] = 1
 									dialoguePopup.dialogue_text = "Sorry, you don't have enough coins. See you later!"
 									dialoguePopup.answers = "[1] I try to find more! Bye"
 									dialoguePopup.open()
@@ -56,6 +66,7 @@ func conversation(answer = null):
 								2:
 									dialogue_state = 2
 									quest_status = QuestStatus.STARTED
+									GlobalVariables.quest_status_by_npc[self.name] = 1
 									dialoguePopup.dialogue_text = "See you later!"
 									dialoguePopup.answers = "[1] Bye!"
 									dialoguePopup.open()
@@ -65,6 +76,7 @@ func conversation(answer = null):
 								1:
 									dialogue_state = 2
 									quest_status = QuestStatus.COMPLETED
+									GlobalVariables.quest_status_by_npc[self.name] = 2
 									dialoguePopup.dialogue_text = "Here you are!"
 									dialoguePopup.answers = "[1] Thank you very much! Byebye"
 									dialoguePopup.open()
@@ -102,6 +114,7 @@ func conversation(answer = null):
 								1:
 									dialogue_state = 2
 									quest_status = QuestStatus.STARTED
+									GlobalVariables.quest_status_by_npc[self.name] = 1
 									dialoguePopup.dialogue_text = "Sorry, you don't have enough coins. See you later!"
 									dialoguePopup.answers = "[1] I try to find more! Bye"
 									dialoguePopup.open()
@@ -109,6 +122,7 @@ func conversation(answer = null):
 								2:
 									dialogue_state = 2
 									quest_status = QuestStatus.STARTED
+									GlobalVariables.quest_status_by_npc[self.name] = 1
 									dialoguePopup.dialogue_text = "See you later!"
 									dialoguePopup.answers = "[1] Bye!"
 									dialoguePopup.open()
@@ -118,6 +132,7 @@ func conversation(answer = null):
 								1:
 									dialogue_state = 2
 									quest_status = QuestStatus.COMPLETED
+									GlobalVariables.quest_status_by_npc[self.name] = 2
 									dialoguePopup.dialogue_text = "Here you are!"
 									dialoguePopup.answers = "[1] Thank you very much! Byebye"
 									dialoguePopup.open()
@@ -127,6 +142,7 @@ func conversation(answer = null):
 								2:
 									dialogue_state = 2
 									quest_status = QuestStatus.STARTED
+									GlobalVariables.quest_status_by_npc[self.name] = 1
 									dialoguePopup.dialogue_text = "See you later!"
 									dialoguePopup.answers = "[1] Bye!"
 									dialoguePopup.open()

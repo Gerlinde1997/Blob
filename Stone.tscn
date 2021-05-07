@@ -69,14 +69,15 @@ curve = SubResource( 4 )
 position = Vector2( 320, 832 )
 
 [node name="Blue" parent="." instance=ExtResource( 6 )]
-modulate = Color( 0.0431373, 0.0901961, 0.584314, 1 )
+modulate = Color( 0, 0.5, 0.9, 1 )
 position = Vector2( 320, 584 )
 
 [node name="Yellow" parent="." instance=ExtResource( 6 )]
-modulate = Color( 1, 0.960784, 0, 1 )
+modulate = Color( 1, 1, 0, 1 )
 position = Vector2( 520, 416 )
 
 [node name="Red" parent="." instance=ExtResource( 6 )]
+modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 1136, 672 )
 
 [node name="CoinContainer" type="Node2D" parent="."]
