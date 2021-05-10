@@ -5,6 +5,7 @@ var dialogue_text setget set_dialogue
 var answers setget set_answers
 
 var npc
+onready var player = $"../../Player"
 
 func set_name(name):
 	npc_name = name
@@ -19,16 +20,15 @@ func set_answers(player_text):
 	$ColorRect/Answers.text = player_text
 
 func open():
-	set_inputmap_dialogue()
-	get_tree().paused = true
+	#get_tree().paused = true
 	popup()
 	$AnimationPlayer.playback_speed = 60.0 / dialogue_text.length()
 	$AnimationPlayer.play("ShowDialogue")
+	set_inputmap_dialogue()
 
 func close():
-	get_tree().paused = false
+	#get_tree().paused = false
 	set_inputmap_walking()
-	
 	hide()
 
 func _ready():

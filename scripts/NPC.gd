@@ -11,6 +11,7 @@ var patrol_points
 var moveSpeed = 20
 
 onready var dialoguePopup = $"../CanvasLayer/DialoguePopup"
+onready var player = $"../Player"
 
 enum QuestStatus {NOT_STARTED, STARTED, COMPLETED}
 enum CoinStatus {NOT_ENOUGH, ENOUGH}
