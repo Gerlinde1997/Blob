@@ -13,6 +13,9 @@ func try_interact():
 	var target = rayCast.get_collider()
 	if rayCast.is_colliding():
 		if target.has_method("conversation"):
+			#target.conversation()
+			print(Input.is_action_pressed("move_right"))
+			
 			target.conversation()
 			print(Input.is_action_pressed("move_right"))
 
@@ -58,7 +61,6 @@ func _physics_process(_delta):
 	velocity = velocity.normalized()
 	
 	move_and_slide(velocity * moveSpeed)
-	print(velocity)
 	manage_animations()
 
 func _process(_delta):
