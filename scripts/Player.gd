@@ -15,9 +15,9 @@ func try_interact():
 		if target.has_method("conversation"):
 			#target.conversation()
 			print(Input.is_action_pressed("move_right"))
-			
-			target.conversation()
+			# event van action move_right moet unpressed/stoppen
 			print(Input.is_action_pressed("move_right"))
+			target.conversation()
 
 func play_animation(anim_name):
 	if $AnimatedSprite.animation != anim_name:
@@ -42,13 +42,14 @@ func manage_animations():
 		play_animation("IdleUp")
 
 
+
 func _physics_process(_delta):
 	velocity = Vector2()
 	
 	if Input.is_action_pressed("move_up"):
 		velocity.y += -1
 		facingDir = Vector2(0, -1)
-	if Input.is_action_pressed("move_down"):
+	if Input.is_action_pressed("move_down") and InputMap.has_action("move_down"):
 		velocity.y += 1
 		facingDir = Vector2(0, 1)
 	if Input.is_action_pressed("move_left"):
@@ -57,6 +58,8 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 		facingDir = Vector2(1, 0)
+	if Input.is_action_pressed("Henk"):
+		print("Henk")
 	
 	velocity = velocity.normalized()
 	

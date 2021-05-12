@@ -51,7 +51,7 @@ func add_action_and_event(new_action, event):
 	InputMap.action_add_event(new_action, event)
 
 func set_inputmap_dialogue():
-	var non_active_actions = ["move_up", "move_down", "move_right", "move_left", "npc_interact"]
+	var non_active_actions = ["move_up", "move_down", "move_right", "move_left", "npc_interact", "Henk"]
 	var state_actions = ["answer_1", "answer_2"]
 	for action in non_active_actions:
 		if InputMap.has_action(action):
@@ -72,7 +72,7 @@ func set_inputmap_dialogue():
 
 func set_inputmap_walking():
 	var non_active_actions = ["answers_1", "answers_2"]
-	var state_actions = ["move_up", "move_down", "move_right", "move_left", "npc_interact"]
+	var state_actions = ["move_up", "move_down", "move_right", "move_left", "npc_interact", "Henk"]
 
 	for action in non_active_actions:
 		if InputMap.has_action(action):
@@ -104,4 +104,9 @@ func set_inputmap_walking():
 			elif new_action == "npc_interact":
 				var event = InputEventKey.new()
 				event.scancode = KEY_SPACE
+				add_action_and_event(new_action, event)
+			
+			elif new_action == "Henk":
+				var event = InputEventKey.new()
+				event.scancode = KEY_H
 				add_action_and_event(new_action, event)
