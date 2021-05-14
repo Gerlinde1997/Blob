@@ -1,4 +1,0 @@
-{
-    "001" : {"name":"Orange", "text":"Hello friend! I am Orange! Can I do something for you?", "answers":"[A] Yes  [B] No"},
-    "002" : {"name": "Orange" }
-}

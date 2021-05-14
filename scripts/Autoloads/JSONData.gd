@@ -1,10 +1,9 @@
 extends Node
 
-var item_data: Dictionary
-# dialougue data ?
+var npc_talk_data: Dictionary
 
 func _ready():
-	item_data = LoadData("res://scripts/Data/ItemData.json")
+	npc_talk_data = LoadData("res://scripts/Data/npcTalkData.json")
 
 func LoadData(file_path):
 	var json_data

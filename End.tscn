@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Rose Cake - Personal Use.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/Rose Cake - Personal Use.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sprites/Rainbow.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/blob_256x256/2021-05-07_11.23.50.png" type="Texture" id=3]
 
