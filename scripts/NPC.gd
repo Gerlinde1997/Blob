@@ -10,6 +10,7 @@ var patrol_points
 
 var moveSpeed = 20
 
+var walk = true
 onready var dialoguePopup = $"../CanvasLayer/DialoguePopup"
 onready var player = $"../Player"
 
@@ -210,6 +211,9 @@ func manage_animations():
 		play_animation("MoveDown")
 
 func _physics_process(_delta):
+	if !walk:
+		return
+	
 	var target = patrol_points[patrol_index]
 	if position.distance_to(target) < 1:
 		patrol_index = wrapi(patrol_index + 1, 0, patrol_points.size())

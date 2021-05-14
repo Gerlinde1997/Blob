@@ -11,17 +11,17 @@ font_data = ExtResource( 1 )
 size = 100
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxEmpty" id=7]
-
-[sub_resource type="StyleBoxEmpty" id=8]
-
-[sub_resource type="StyleBoxEmpty" id=9]
+[sub_resource type="StyleBoxEmpty" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="DynamicFont" id=8]
 size = 60
 font_data = ExtResource( 1 )
 
@@ -96,12 +96,12 @@ margin_left = 448.0
 margin_top = 416.0
 margin_right = 584.0
 margin_bottom = 480.0
-custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.980392, 0.235294, 0.941176, 0.647059 )
 custom_colors/font_color_hover = Color( 0.980392, 0.235294, 0.941176, 0.784314 )
 custom_colors/font_color_pressed = Color( 0.980392, 0.235294, 0.941176, 1 )

@@ -13,10 +13,10 @@ func try_interact():
 	var target = rayCast.get_collider()
 	if rayCast.is_colliding():
 		if target.has_method("conversation"):
-			#target.conversation()
-			print(Input.is_action_pressed("move_right"))
-			# event van action move_right moet unpressed/stoppen
-			print(Input.is_action_pressed("move_right"))
+			var actions = InputMap.get_actions()
+			for action in actions:
+				if Input.is_action_pressed(action):
+					Input.action_release(action)
 			target.conversation()
 
 func play_animation(anim_name):
@@ -49,7 +49,7 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("move_up"):
 		velocity.y += -1
 		facingDir = Vector2(0, -1)
-	if Input.is_action_pressed("move_down") and InputMap.has_action("move_down"):
+	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
 		facingDir = Vector2(0, 1)
 	if Input.is_action_pressed("move_left"):

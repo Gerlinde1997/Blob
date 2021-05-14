@@ -20,14 +20,14 @@ func set_answers(player_text):
 	$ColorRect/Answers.text = player_text
 
 func open():
-	#get_tree().paused = true
+	npc.walk = false
 	popup()
 	$AnimationPlayer.playback_speed = 60.0 / dialogue_text.length()
 	$AnimationPlayer.play("ShowDialogue")
 	set_inputmap_dialogue()
 
 func close():
-	#get_tree().paused = false
+	npc.walk = true
 	set_inputmap_walking()
 	hide()
 
