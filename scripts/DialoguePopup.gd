@@ -5,6 +5,7 @@ var dialogue_text setget set_dialogue
 var answers setget set_answers
 
 var npc
+onready var hud = $"../HUD"
 onready var player = $"../../Player"
 
 func set_name(name):
@@ -21,6 +22,7 @@ func set_answers(player_text):
 
 func open():
 	npc.walk = false
+	hud.popup_hidden = false
 	popup()
 	$AnimationPlayer.playback_speed = 60.0 / dialogue_text.length()
 	$AnimationPlayer.play("ShowDialogue")
@@ -28,6 +30,7 @@ func open():
 
 func close():
 	npc.walk = true
+	hud.popup_hidden = true
 	set_inputmap_walking()
 	hide()
 

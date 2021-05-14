@@ -1,5 +1,7 @@
 extends Control
 
+var popup_hidden
+
 onready var count = $Background/Count
 onready var color_rects = $Colors.get_children()
 
@@ -43,5 +45,5 @@ func _process(_delta):
 	update_colors()
 	update_coin_count()
 
-	if GlobalVariables.colors.size() == 6:
+	if GlobalVariables.colors.size() == 6 and popup_hidden == true:
 		SceneChanger.goto_scene("res://End.tscn")

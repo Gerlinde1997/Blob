@@ -30,7 +30,6 @@ tracks/1/keys = {
 }
 
 [node name="DialoguePopup" type="PopupDialog"]
-pause_mode = 2
 popup_exclusive = true
 script = ExtResource( 1 )
 __meta__ = {
