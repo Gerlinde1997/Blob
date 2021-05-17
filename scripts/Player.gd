@@ -42,7 +42,6 @@ func manage_animations():
 		play_animation("IdleUp")
 
 
-
 func _physics_process(_delta):
 	velocity = Vector2()
 	
@@ -58,8 +57,6 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 		facingDir = Vector2(1, 0)
-	if Input.is_action_pressed("Henk"):
-		print("Henk")
 	
 	velocity = velocity.normalized()
 	

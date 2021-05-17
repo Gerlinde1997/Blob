@@ -3,7 +3,8 @@ extends Node
 var npc_talk_data: Dictionary
 
 func _ready():
-	npc_talk_data = LoadData("res://scripts/Data/npcTalkData.json")
+	pass
+	#npc_talk_data = LoadData("res://scripts/Data/npcTalkData.json")
 
 func LoadData(file_path):
 	var json_data

@@ -39,6 +39,8 @@ func set_quest_status(name):
 		quest_status = QuestStatus.COMPLETED
 
 func conversation(answer = null):
+	dialoguePopup.npc = self
+	dialoguePopup.npc_name = self.name
 	manage_talking_animation()
 	set_coin_status()
 	set_quest_status(self.name)
@@ -46,9 +48,7 @@ func conversation(answer = null):
 		QuestStatus.NOT_STARTED:
 			match dialogue_state:
 				0:
-					dialogue_state = 1
-					dialoguePopup.npc = self
-					dialoguePopup.npc_name = self.name
+					dialogue_state = 1					
 					dialoguePopup.dialogue_text = "Hello friend! I am {name}! Do you want to buy my colour?".format({"name": self.name})
 					dialoguePopup.answers = "[1] Yes   [2] No"
 					dialoguePopup.open()
