@@ -12,7 +12,7 @@ script = ExtResource( 4 )
 modulate = Color( 0.94902, 0.933333, 0.933333, 1 )
 frames = ExtResource( 1 )
 animation = "IdleDown"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
@@ -20,8 +20,8 @@ visible = false
 polygon = PoolVector2Array( -88, 120, 88, 120, 104, 104, 120, 88, 120, -40, 104, -72, 88, -88, 72, -104, 40, -120, -40, -120, -72, -104, -88, -88, -104, -72, -120, -40, -120, 88 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-visible = false
 enabled = true
+cast_to = Vector2( 0, 128 )
 collide_with_areas = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
