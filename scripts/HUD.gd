@@ -4,6 +4,7 @@ var npc_popup_hidden
 
 onready var count = $Background/Count
 onready var color_rects = $Colors.get_children()
+onready var shovel = $Background/Shovel
 
 var color_name_list = []
 var collected = 0
@@ -23,6 +24,12 @@ func set_colors():
 	$Colors/Blue.color = Blue
 	$Colors/Purple.color = Purple
 
+func update_shovel():
+	if GlobalVariables.picked_shovel == null:
+		shovel.show_behind_parent = true
+	else:
+		shovel.show_behind_parent = false
+
 func get_color_names():
 	for child in color_rects:
 		color_name_list.append(child.get_name())
@@ -40,10 +47,11 @@ func update_coin_count():
 func _ready():
 	set_colors()
 	get_color_names()
-
+	
 func _process(_delta):
 	update_colors()
 	update_coin_count()
+	update_shovel()
 
 	if GlobalVariables.colors.size() == 6 and npc_popup_hidden == true:
 		SceneChanger.goto_scene("res://End.tscn")

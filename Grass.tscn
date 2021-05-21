@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://zenva_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/Doors.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://DialoguePopup.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Coin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Shovel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Hollow.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SegmentShape2D" id=1]
 a = Vector2( 128, 0 )
@@ -45,6 +47,9 @@ __meta__ = {
 tile_set = ExtResource( 1 )
 format = 1
 
+[node name="Hollow" parent="Map" instance=ExtResource( 10 )]
+position = Vector2( 160, 168 )
+
 [node name="Doors" type="Node2D" parent="Map"]
 script = ExtResource( 2 )
 __meta__ = {
@@ -81,6 +86,9 @@ position = Vector2( 544, 544 )
 [node name="Green" parent="." instance=ExtResource( 5 )]
 modulate = Color( 0.5, 1, 0, 1 )
 position = Vector2( 1216, 608 )
+
+[node name="Shovel" parent="." instance=ExtResource( 9 )]
+position = Vector2( 304, 208 )
 
 [node name="CoinContainer" type="Node2D" parent="."]
 scale = Vector2( 0.1, 0.1 )
@@ -127,7 +135,9 @@ scale = Vector2( 1, 1 )
 visible = true
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 8 )]
+[connection signal="body_entered" from="Map/Hollow" to="Map/Hollow" method="_on_Hollow_body_entered"]
 [connection signal="body_entered" from="Map/Doors/Up_left_door" to="Map/Doors" method="_on_Up_left_door_body_entered"]
+[connection signal="body_entered" from="Shovel" to="Shovel" method="_on_Shovel_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin1" to="CoinContainer/Coin1" method="_on_Coin_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin2" to="CoinContainer/Coin2" method="_on_Coin_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin3" to="CoinContainer/Coin3" method="_on_Coin_body_entered"]

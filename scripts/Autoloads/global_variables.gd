@@ -12,5 +12,7 @@ var colors = []
 
 var quest_status_by_npc = {"Red": 0, "Orange": 0, "Yellow": 0, "Green": 0, "Blue": 0, "Purple": 0}
 
-# stock NodePath of collected coins
+# stock NodePath of collected items
 var picked_coins = []
+var picked_shovel = null
+var picked_hidden_coin = null

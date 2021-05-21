@@ -13,6 +13,8 @@ var moveSpeed = 20
 var walk = true
 onready var dialoguePopup = $"../CanvasLayer/DialoguePopup"
 onready var player = $"../Player"
+onready var player_raycast = $"../Player/RayCast2D"
+onready var cloud_sprite = $Sprite
 
 enum QuestStatus {NOT_STARTED, STARTED, COMPLETED}
 enum CoinStatus {NOT_ENOUGH, ENOUGH}
@@ -37,6 +39,13 @@ func set_quest_status(name):
 		quest_status = QuestStatus.STARTED
 	elif GlobalVariables.quest_status_by_npc[name] == 2:
 		quest_status = QuestStatus.COMPLETED
+
+func show_cloud():
+	cloud_sprite.visible = true
+
+func hide_cloud():
+	if not player_raycast.get_collider() == self:
+		cloud_sprite.visible = false
 
 func conversation(answer = null):
 	dialoguePopup.npc = self
@@ -222,3 +231,4 @@ func _physics_process(_delta):
 	velocity = (target - position).normalized()
 	velocity = move_and_slide(velocity * moveSpeed)
 	manage_animations()
+	hide_cloud()

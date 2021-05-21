@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/NPC.gd" type="Script" id=1]
 [ext_resource path="res://blob_grey_animation.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://Sprites/cloud32x32.png" type="Texture" id=3]
 
 [node name="Npc" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -10,9 +11,13 @@ script = ExtResource( 1 )
 scale = Vector2( 0.2, 0.2 )
 frames = ExtResource( 2 )
 animation = "IdleDown"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 scale = Vector2( 0.2, 0.2 )
 polygon = PoolVector2Array( -88, 120, 88, 120, 120, 88, 120, -40, 104, -72, 88, -88, 72, -104, 40, -120, -40, -120, -72, -104, -88, -88, -104, -72, -120, -40, -120, 88 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -32 )
+texture = ExtResource( 3 )

@@ -9,15 +9,28 @@ var moveSpeed = 80
 onready var rayCast = $RayCast2D
 var interactDist = 600
 
+func collision_screening():
+	rayCast.cast_to = rayCastdir * interactDist
+	var detected_obj = rayCast.get_collider()
+	if rayCast.is_colliding():
+		if detected_obj.has_method("conversation"):
+			detected_obj.show_cloud()
+		if detected_obj.has_method("digging"):
+			detected_obj.show_dollar()
+
 func try_interact():
 	var target = rayCast.get_collider()
 	if rayCast.is_colliding():
+
 		if target.has_method("conversation"):
 			var actions = InputMap.get_actions()
 			for action in actions:
 				if Input.is_action_pressed(action):
 					Input.action_release(action)
 			target.conversation()
+		
+		if target.has_method("digging"):
+			target.digging()
 
 func play_animation(anim_name):
 	if $AnimatedSprite.animation != anim_name:
@@ -67,8 +80,8 @@ func _physics_process(_delta):
 
 	move_and_slide(velocity * moveSpeed)
 	manage_animations()
-	rayCast.cast_to = rayCastdir * interactDist
-
+	collision_screening()
+	
 func _process(_delta):
 	if Input.is_action_just_pressed("npc_interact"):
 		try_interact()
