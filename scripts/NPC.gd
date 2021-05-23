@@ -8,13 +8,20 @@ onready var patrol_path = get_node(patrol_path_node)
 var patrol_index = 0
 var patrol_points
 
-var moveSpeed = 20
-
+var moveSpeed = 50
 var walk = true
+
 onready var dialoguePopup = $"../CanvasLayer/DialoguePopup"
 onready var player = $"../Player"
 onready var player_raycast = $"../Player/RayCast2D"
 onready var cloud_sprite = $Sprite
+
+var color_dict = {"Red": Color(1, 0, 0, 1), 
+				"Orange": Color(0.9, 0.5, 0, 1), 
+				"Yellow": Color(1, 1, 0, 1),
+				"Green": Color(0.5, 1, 0,1),
+				"Blue": Color(0, 0.5, 0.9, 1),
+				"Purple": Color(0.45, 0, 1, 1)}
 
 enum QuestStatus {NOT_STARTED, STARTED, COMPLETED}
 enum CoinStatus {NOT_ENOUGH, ENOUGH}
@@ -25,6 +32,8 @@ var dialogue_state = 0
 func _ready():
 	if patrol_path:
 		patrol_points = patrol_path.curve.get_baked_points()
+	
+	$AnimatedSprite.self_modulate = color_dict[self.name]
 
 func set_coin_status():
 	if GlobalVariables.coins >= 2:
@@ -42,10 +51,12 @@ func set_quest_status(name):
 
 func show_cloud():
 	cloud_sprite.visible = true
+	moveSpeed = 0
 
 func hide_cloud():
 	if not player_raycast.get_collider() == self:
 		cloud_sprite.visible = false
+		moveSpeed = 20
 
 func conversation(answer = null):
 	dialoguePopup.npc = self

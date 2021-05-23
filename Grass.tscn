@@ -76,15 +76,12 @@ curve = SubResource( 4 )
 position = Vector2( 320, 64 )
 
 [node name="Orange" parent="." instance=ExtResource( 5 )]
-modulate = Color( 0.898039, 0.498039, 0, 1 )
 position = Vector2( 416, 128 )
 
 [node name="Purple" parent="." instance=ExtResource( 5 )]
-modulate = Color( 0.45, 0, 1, 1 )
 position = Vector2( 544, 544 )
 
 [node name="Green" parent="." instance=ExtResource( 5 )]
-modulate = Color( 0.5, 1, 0, 1 )
 position = Vector2( 1216, 608 )
 
 [node name="Shovel" parent="." instance=ExtResource( 9 )]
@@ -135,7 +132,6 @@ scale = Vector2( 1, 1 )
 visible = true
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 8 )]
-[connection signal="body_entered" from="Map/Hollow" to="Map/Hollow" method="_on_Hollow_body_entered"]
 [connection signal="body_entered" from="Map/Doors/Up_left_door" to="Map/Doors" method="_on_Up_left_door_body_entered"]
 [connection signal="body_entered" from="Shovel" to="Shovel" method="_on_Shovel_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin1" to="CoinContainer/Coin1" method="_on_Coin_body_entered"]

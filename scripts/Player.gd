@@ -4,10 +4,10 @@ var velocity = Vector2()
 var facingDir = Vector2()
 var rayCastdir = Vector2()
 
-var moveSpeed = 80
+var moveSpeed = 100
 
 onready var rayCast = $RayCast2D
-var interactDist = 600
+var interactDist = 500
 
 func collision_screening():
 	rayCast.cast_to = rayCastdir * interactDist
@@ -16,7 +16,7 @@ func collision_screening():
 		if detected_obj.has_method("conversation"):
 			detected_obj.show_cloud()
 		if detected_obj.has_method("digging"):
-			detected_obj.show_dollar()
+			detected_obj.show_mark()
 
 func try_interact():
 	var target = rayCast.get_collider()

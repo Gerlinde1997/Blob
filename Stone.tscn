@@ -15,7 +15,7 @@ b = Vector2( -64, -6.10352e-05 )
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 320, 584, 0, 0, 0, 0, 496, 592, 0, 0, 0, 0, 544, 640, 0, 0, 0, 0, 584, 696, 0, 0, 0, 0, 600, 784, 0, 0, 0, 0, 600, 848, 0, 0, 0, 0, 520, 640, 0, 0, 0, 0, 520, 640, 0, 0, 0, 0, 320, 584 )
+"points": PoolVector2Array( 0, 0, 0, 0, 320, 584, 0, 0, 0, 0, 496, 592, 0, 0, 0, 0, 544, 640, 0, 0, 0, 0, 584, 696, 0, 0, 0, 0, 600, 784, 0, 0, 0, 0, 536, 728, 0, 0, 0, 0, 520, 640, 0, 0, 0, 0, 520, 640, 0, 0, 0, 0, 320, 584 )
 }
 
 [sub_resource type="Curve2D" id=3]
@@ -69,15 +69,12 @@ curve = SubResource( 4 )
 position = Vector2( 320, 832 )
 
 [node name="Blue" parent="." instance=ExtResource( 6 )]
-modulate = Color( 0, 0.5, 0.9, 1 )
 position = Vector2( 320, 584 )
 
 [node name="Yellow" parent="." instance=ExtResource( 6 )]
-modulate = Color( 1, 1, 0, 1 )
 position = Vector2( 520, 416 )
 
 [node name="Red" parent="." instance=ExtResource( 6 )]
-modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 1136, 672 )
 
 [node name="CoinContainer" type="Node2D" parent="."]
@@ -107,11 +104,6 @@ position = Vector2( 688, 184 )
 ] instance=ExtResource( 7 )]
 position = Vector2( 192, 184 )
 
-[node name="Coin6" parent="CoinContainer" groups=[
-"coins",
-] instance=ExtResource( 7 )]
-position = Vector2( 1072, 56 )
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DialoguePopup" parent="CanvasLayer" instance=ExtResource( 5 )]
@@ -123,4 +115,3 @@ position = Vector2( 1072, 56 )
 [connection signal="body_entered" from="CoinContainer/Coin3" to="CoinContainer/Coin3" method="_on_Coin_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin4" to="CoinContainer/Coin4" method="_on_Coin_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin5" to="CoinContainer/Coin5" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="CoinContainer/Coin6" to="CoinContainer/Coin6" method="_on_Coin_body_entered"]

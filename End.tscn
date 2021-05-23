@@ -44,7 +44,7 @@ margin_right = 997.0
 margin_bottom = 563.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.419608, 0.419608, 1 )
-text = "(C) 2021.1 Gerlinde van Ginkel"
+text = "(C) 2021.2 Gerlinde van Ginkel"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -15,6 +15,7 @@ frame = 1
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 scale = Vector2( 0.2, 0.2 )
 polygon = PoolVector2Array( -88, 120, 88, 120, 120, 88, 120, -40, 104, -72, 88, -88, 72, -104, 40, -120, -40, -120, -72, -104, -88, -88, -104, -72, -120, -40, -120, 88 )
 
