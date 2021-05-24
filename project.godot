@@ -25,10 +25,6 @@ SceneChanger="*res://scripts/Autoloads/Scene_changer.gd"
 GlobalVariables="*res://scripts/Autoloads/global_variables.gd"
 JsonData="*res://scripts/Autoloads/JSONData.gd"
 
-[display]
-
-window/size/resizable=false
-
 [input]
 
 ui_accept={
