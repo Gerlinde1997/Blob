@@ -23,6 +23,7 @@ func set_answers(player_text):
 func open():
 	npc.walk = false
 	hud.npc_popup_hidden = false
+	player.set_physics_process(false)
 	popup()
 	$AnimationPlayer.playback_speed = 60.0 / dialogue_text.length()
 	$AnimationPlayer.play("ShowDialogue")
@@ -30,6 +31,7 @@ func open():
 func close():
 	npc.walk = true
 	hud.npc_popup_hidden = true
+	player.set_physics_process(true)
 	hide()
 
 func _ready():
