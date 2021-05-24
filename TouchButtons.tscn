@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/exclamation_mark32x32.png" type="Texture" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 16.0
+
+[node name="TouchButtons" type="Node2D"]
+
+[node name="Up" type="TouchScreenButton" parent="."]
+position = Vector2( 944, 472 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+shape = SubResource( 5 )
+action = "move_up"
+
+[node name="Down" type="TouchScreenButton" parent="."]
+position = Vector2( 944, 536 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+shape = SubResource( 5 )
+action = "move_down"
+
+[node name="Right" type="TouchScreenButton" parent="."]
+position = Vector2( 976, 504 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+shape = SubResource( 5 )
+action = "move_right"
+
+[node name="Left" type="TouchScreenButton" parent="."]
+position = Vector2( 912, 504 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+shape = SubResource( 5 )
+action = "move_left"
+
+[node name="Interact" type="TouchScreenButton" parent="."]
+position = Vector2( 976, 400 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+shape = SubResource( 5 )
+action = "npc_interact"
+
+[node name="answer_1" type="TouchScreenButton" parent="."]
+position = Vector2( 448, 544 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+shape = SubResource( 5 )
+action = "answer_1"
+
+[node name="answer_2" type="TouchScreenButton" parent="."]
+position = Vector2( 552, 544 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+shape = SubResource( 5 )
+action = "answer_2"
