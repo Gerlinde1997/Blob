@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Fonts/Rose Cake - Personal Use.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://scripts/Start.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Instructions.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
@@ -30,7 +30,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 512.0 ]
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -54,47 +55,50 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 336.0
-margin_top = 24.0
-margin_right = 696.0
-margin_bottom = 120.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -176.0
+margin_top = 32.0
+margin_right = 184.0
+margin_bottom = 128.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.545098, 0.133333, 0.952941, 1 )
 text = "(Instructions)"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="walk" type="Label" parent="."]
-margin_left = 288.0
-margin_top = 168.0
-margin_right = 743.0
-margin_bottom = 264.0
+margin_left = 296.0
+margin_top = 184.0
+margin_right = 751.0
+margin_bottom = 280.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.545098, 0.133333, 0.952941, 1 )
-text = "Walk with WSAD"
+text = "Walk with WASD"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="talk" type="Label" parent="."]
-margin_left = 304.0
-margin_top = 264.0
-margin_right = 759.0
-margin_bottom = 360.0
+margin_left = 248.0
+margin_top = 280.0
+margin_right = 781.0
+margin_bottom = 376.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.545098, 0.133333, 0.952941, 1 )
-text = "Talk with SPACE"
+text = "Interact with SPACE"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Start" type="Button" parent="."]
-margin_left = 448.0
+[node name="Play" type="Button" parent="."]
+margin_left = 440.0
 margin_top = 416.0
-margin_right = 584.0
+margin_right = 576.0
 margin_bottom = 480.0
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )
@@ -105,8 +109,28 @@ custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.980392, 0.235294, 0.941176, 0.647059 )
 custom_colors/font_color_hover = Color( 0.980392, 0.235294, 0.941176, 0.784314 )
 custom_colors/font_color_pressed = Color( 0.980392, 0.235294, 0.941176, 1 )
-text = "(Start)"
+text = "(Play)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+
+[node name="Back" type="Button" parent="."]
+margin_left = 440.0
+margin_top = 472.0
+margin_right = 576.0
+margin_bottom = 536.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.980392, 0.235294, 0.941176, 0.647059 )
+custom_colors/font_color_hover = Color( 0.980392, 0.235294, 0.941176, 0.784314 )
+custom_colors/font_color_pressed = Color( 0.980392, 0.235294, 0.941176, 1 )
+text = "(Back)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
