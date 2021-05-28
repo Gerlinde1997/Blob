@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Fonts/Rose Cake - Personal Use.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/Instructions.gd" type="Script" id=2]
+[ext_resource path="res://Close_button.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
@@ -132,5 +133,9 @@ text = "(Back)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Close_button" parent="." instance=ExtResource( 3 )]
+margin_left = 976.0
+margin_right = 0.0
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

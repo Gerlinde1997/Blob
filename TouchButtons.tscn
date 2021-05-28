@@ -8,7 +8,18 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
 
-[node name="TouchButtons" type="Node2D"]
+[node name="TouchButtons" type="Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1024.0
+margin_top = -600.0
+margin_right = -1024.0
+margin_bottom = -600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Up" type="TouchScreenButton" parent="."]
 position = Vector2( 944, 464 )

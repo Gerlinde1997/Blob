@@ -12,53 +12,69 @@ size = 36
 font_data = ExtResource( 1 )
 
 [node name="Background" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 1024.0
+margin_bottom = 600.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1184.0
+margin_bottom = 704.0
 color = Color( 0.639216, 0.988235, 0.921569, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 32.0
-margin_top = -40.0
-margin_right = 968.0
-margin_bottom = 497.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -464.0
+margin_top = -300.0
+margin_right = 472.0
+margin_bottom = 237.0
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 424.0
-margin_top = 224.0
-margin_right = 600.0
-margin_bottom = 320.0
+anchor_left = 0.5
+anchor_top = 0.533
+anchor_right = 0.5
+anchor_bottom = 0.533
+margin_left = -88.0
+margin_top = -95.8
+margin_right = 88.0
+margin_bottom = 0.199982
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.545098, 0.133333, 0.952941, 1 )
 text = "(Blob)"
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 384.0
-margin_top = 296.0
-margin_right = 640.0
-margin_bottom = 392.0
+anchor_left = 0.5
+anchor_top = 0.533
+anchor_right = 0.5
+anchor_bottom = 0.533
+margin_left = -128.0
+margin_top = -23.8
+margin_right = 128.0
+margin_bottom = 72.2
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.545098, 0.133333, 0.952941, 1 )
 text = "The Game"
 
 [node name="copyright" type="Label" parent="."]
-margin_left = 712.0
-margin_top = 528.0
-margin_right = 997.0
-margin_bottom = 563.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -312.0
+margin_top = -72.0
+margin_right = -22.0
+margin_bottom = -37.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.419608, 0.419608, 1 )
 text = "(C) 2021.2 Gerlinde van Ginkel"
