@@ -26,9 +26,9 @@ func set_colors():
 
 func update_shovel():
 	if GlobalVariables.picked_shovel == null:
-		shovel.show_behind_parent = true
+		shovel.modulate = Color(1, 1, 1, 0.5)
 	else:
-		shovel.show_behind_parent = false
+		shovel.modulate = Color(1, 1, 1, 1)
 
 func get_color_names():
 	for child in color_rects:

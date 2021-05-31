@@ -8,67 +8,85 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
 
-[node name="TouchButtons" type="Control"]
+[node name="TouchButtons" type="CanvasLayer"]
+
+[node name="Move" type="Control" parent="."]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1024.0
-margin_top = -600.0
-margin_right = -1024.0
-margin_bottom = -600.0
+margin_left = -128.0
+margin_top = -152.0
+margin_bottom = -24.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Up" type="TouchScreenButton" parent="."]
-position = Vector2( 944, 464 )
+[node name="Up" type="TouchScreenButton" parent="Move"]
+position = Vector2( 48, 16 )
 normal = ExtResource( 3 )
 pressed = ExtResource( 2 )
 shape = SubResource( 1 )
 action = "move_up"
+visibility_mode = 1
 
-[node name="Down" type="TouchScreenButton" parent="."]
-position = Vector2( 976, 576 )
+[node name="Down" type="TouchScreenButton" parent="Move"]
+position = Vector2( 80, 128 )
 rotation = 3.14159
 normal = ExtResource( 3 )
 pressed = ExtResource( 2 )
 shape = SubResource( 1 )
 action = "move_down"
+visibility_mode = 1
 
-[node name="Right" type="TouchScreenButton" parent="."]
-position = Vector2( 1016, 504 )
+[node name="Right" type="TouchScreenButton" parent="Move"]
+position = Vector2( 120, 56 )
 rotation = 1.5708
 normal = ExtResource( 3 )
 pressed = ExtResource( 2 )
 shape = SubResource( 1 )
 action = "move_right"
+visibility_mode = 1
 
-[node name="Left" type="TouchScreenButton" parent="."]
-position = Vector2( 904, 536 )
+[node name="Left" type="TouchScreenButton" parent="Move"]
+position = Vector2( 8, 88 )
 rotation = -1.5708
 normal = ExtResource( 3 )
 pressed = ExtResource( 2 )
 shape = SubResource( 1 )
 action = "move_left"
+visibility_mode = 1
 
-[node name="Interact" type="TouchScreenButton" parent="."]
-position = Vector2( 944, 504 )
+[node name="Interact" type="TouchScreenButton" parent="Move"]
+position = Vector2( 48, 56 )
 normal = ExtResource( 4 )
 pressed = ExtResource( 1 )
 shape = SubResource( 1 )
 action = "npc_interact"
+visibility_mode = 1
 
-[node name="answer_1" type="TouchScreenButton" parent="."]
-position = Vector2( 448, 544 )
+[node name="Answer" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -152.0
+margin_right = 64.0
+margin_bottom = -24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="answer_1" type="TouchScreenButton" parent="Answer"]
+position = Vector2( 16, 24 )
 normal = ExtResource( 4 )
 pressed = ExtResource( 1 )
 shape = SubResource( 1 )
 action = "answer_1"
+visibility_mode = 1
 
-[node name="answer_2" type="TouchScreenButton" parent="."]
-position = Vector2( 552, 544 )
+[node name="answer_2" type="TouchScreenButton" parent="Answer"]
+position = Vector2( 16, 96 )
 normal = ExtResource( 4 )
 pressed = ExtResource( 1 )
 shape = SubResource( 1 )
 action = "answer_2"
+visibility_mode = 1

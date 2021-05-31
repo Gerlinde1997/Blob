@@ -9,9 +9,7 @@
 size = 100
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxEmpty" id=7]
-
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=3]
 
@@ -19,11 +17,13 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="DynamicFont" id=7]
 size = 60
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=8]
 size = 36
 font_data = ExtResource( 2 )
 
@@ -36,8 +36,8 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1216.0
-margin_bottom = 704.0
+margin_right = 2220.0
+margin_bottom = 2220.0
 color = Color( 0.639216, 0.988235, 0.921569, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -100,12 +100,12 @@ margin_left = -72.0
 margin_top = 116.0
 margin_right = 64.0
 margin_bottom = 180.0
-custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.980392, 0.235294, 0.941176, 0.647059 )
 custom_colors/font_color_hover = Color( 0.980392, 0.235294, 0.941176, 0.784314 )
 custom_colors/font_color_pressed = Color( 0.980392, 0.235294, 0.941176, 1 )
@@ -123,12 +123,12 @@ margin_left = -72.0
 margin_top = 164.0
 margin_right = 64.0
 margin_bottom = 228.0
-custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.980392, 0.235294, 0.941176, 0.647059 )
 custom_colors/font_color_hover = Color( 0.980392, 0.235294, 0.941176, 0.784314 )
 custom_colors/font_color_pressed = Color( 0.980392, 0.235294, 0.941176, 1 )
@@ -138,12 +138,10 @@ __meta__ = {
 }
 
 [node name="Close_button" parent="CanvasLayer" instance=ExtResource( 4 )]
-anchor_left = 1.0
-anchor_bottom = 0.0
-margin_left = -48.0
+margin_left = -32.0
 margin_top = 16.0
 margin_right = -16.0
-margin_bottom = 40.0
+margin_bottom = 32.0
 
 [node name="copyright" type="Label" parent="CanvasLayer"]
 anchor_left = 1.0
@@ -152,10 +150,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -304.0
 margin_top = -48.0
-margin_right = -14.0
-margin_bottom = -13.0
+margin_right = -16.0
+margin_bottom = -16.0
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 0.419608, 0.419608, 1 )
 text = "(C) 2021.2 Gerlinde van Ginkel"
 __meta__ = {

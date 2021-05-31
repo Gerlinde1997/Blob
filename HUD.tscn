@@ -5,20 +5,14 @@
 [ext_resource path="res://Sprites/shovel_1.png" type="Texture" id=3]
 
 [node name="HUD" type="Control"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Background" type="ColorRect" parent="."]
-margin_left = 32.0
-margin_top = 32.0
-margin_right = 448.0
-margin_bottom = 112.0
+margin_right = 416.0
+margin_bottom = 80.0
 color = Color( 1, 1, 1, 0.235294 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -38,8 +32,8 @@ __meta__ = {
 [node name="Count" type="Label" parent="Background"]
 margin_left = 88.0
 margin_top = 24.0
-margin_right = 104.0
-margin_bottom = 40.0
+margin_right = 96.0
+margin_bottom = 38.0
 rect_scale = Vector2( 2, 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
@@ -48,7 +42,7 @@ __meta__ = {
 }
 
 [node name="Shovel" type="TextureRect" parent="Background"]
-show_behind_parent = true
+modulate = Color( 1, 1, 1, 0.501961 )
 margin_left = 152.0
 margin_top = -16.0
 margin_right = 452.0
@@ -61,10 +55,10 @@ __meta__ = {
 }
 
 [node name="Colors" type="Control" parent="."]
-margin_left = 248.0
-margin_top = 56.0
-margin_right = 432.0
-margin_bottom = 80.0
+margin_left = 208.0
+margin_top = 28.0
+margin_right = 392.0
+margin_bottom = 52.0
 
 [node name="Red" type="ColorRect" parent="Colors"]
 margin_right = 24.0
