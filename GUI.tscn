@@ -8,16 +8,16 @@
 [node name="GUI" type="CanvasLayer"]
 
 [node name="HUD" parent="." instance=ExtResource( 1 )]
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 16.0
-margin_bottom = 16.0
+margin_left = 136.0
+margin_top = 104.0
+margin_right = 136.0
+margin_bottom = 104.0
 
 [node name="Close_button" parent="." instance=ExtResource( 2 )]
-margin_left = -32.0
-margin_top = 16.0
-margin_right = -24.0
-margin_bottom = 30.0
+margin_left = -200.0
+margin_top = 144.0
+margin_right = -192.0
+margin_bottom = 158.0
 
 [node name="DialoguePopup" parent="." instance=ExtResource( 4 )]
 anchor_left = 0.5

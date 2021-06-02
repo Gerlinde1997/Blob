@@ -36,7 +36,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 2220.0
+margin_right = 2390.0
 margin_bottom = 2220.0
 color = Color( 0.639216, 0.988235, 0.921569, 1 )
 __meta__ = {
@@ -138,10 +138,10 @@ __meta__ = {
 }
 
 [node name="Close_button" parent="CanvasLayer" instance=ExtResource( 4 )]
-margin_left = -32.0
-margin_top = 16.0
-margin_right = -16.0
-margin_bottom = 32.0
+margin_left = -211.0
+margin_top = 119.0
+margin_right = -184.0
+margin_bottom = 143.0
 
 [node name="copyright" type="Label" parent="CanvasLayer"]
 anchor_left = 1.0
