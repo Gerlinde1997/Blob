@@ -20,9 +20,13 @@ margin_right = -24.0
 margin_bottom = 30.0
 
 [node name="DialoguePopup" parent="." instance=ExtResource( 4 )]
+anchor_left = 0.5
+anchor_top = 0.987
+anchor_right = 0.5
+anchor_bottom = 0.987
 margin_left = -256.0
-margin_top = -88.0
+margin_top = -80.2
 margin_right = 256.0
-margin_bottom = -32.0
+margin_bottom = -24.2
 
 [node name="TouchButtons" parent="." instance=ExtResource( 3 )]

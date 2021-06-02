@@ -1,4 +1,4 @@
-extends PopupDialog
+extends Control
 
 var npc_name setget set_name
 var dialogue_text setget set_dialogue
@@ -24,7 +24,7 @@ func open():
 	npc.walk = false
 	hud.npc_popup_hidden = false
 	player.set_physics_process(false)
-	popup()
+	set_visible(true)
 	$AnimationPlayer.playback_speed = 60.0 / dialogue_text.length()
 	$AnimationPlayer.play("ShowDialogue")
 
@@ -32,9 +32,10 @@ func close():
 	npc.walk = true
 	hud.npc_popup_hidden = true
 	player.set_physics_process(true)
-	hide()
+	set_visible(false)
 
 func _ready():
+	set_visible(false)
 	set_process_input(false)
 
 func _input(event):

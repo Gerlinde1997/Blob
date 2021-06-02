@@ -29,25 +29,21 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[node name="DialoguePopup" type="PopupDialog"]
-visible = true
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
+[node name="DialoguePopup" type="Control"]
 margin_right = 512.0
 margin_bottom = 56.0
-popup_exclusive = true
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 512.0
-margin_bottom = 56.0
+anchor_left = -1.0
+anchor_top = -10.714
+anchor_right = -1.0
+anchor_bottom = -10.714
+margin_left = 512.0
+margin_top = 599.984
+margin_right = 1024.0
+margin_bottom = 655.984
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -63,18 +59,20 @@ __meta__ = {
 }
 
 [node name="Dialogue" type="Label" parent="ColorRect"]
-margin_left = 5.0
+margin_left = 8.0
 margin_top = 16.0
-margin_right = 504.0
+margin_right = 507.0
 margin_bottom = 40.0
 custom_colors/font_color = Color( 0.360784, 0.313726, 0.313726, 1 )
 text = "bla bla bla"
 autowrap = true
+percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Answers" type="Label" parent="ColorRect"]
+visible = false
 margin_left = 5.0
 margin_top = 42.0
 margin_right = 504.0
