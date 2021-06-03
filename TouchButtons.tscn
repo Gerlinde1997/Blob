@@ -15,10 +15,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -256.0
-margin_top = -224.0
-margin_right = -128.0
-margin_bottom = -96.0
+margin_left = -192.0
+margin_top = -152.0
+margin_right = -64.0
+margin_bottom = -24.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -69,16 +69,16 @@ visibility_mode = 1
 [node name="Answer" type="Control" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 152.0
-margin_top = -240.0
-margin_right = 216.0
-margin_bottom = -112.0
+margin_left = 64.0
+margin_top = -152.0
+margin_right = 128.0
+margin_bottom = -24.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="answer_1" type="TouchScreenButton" parent="Answer"]
-position = Vector2( 16, 24 )
+position = Vector2( 16, 16 )
 normal = ExtResource( 4 )
 pressed = ExtResource( 1 )
 shape = SubResource( 1 )
