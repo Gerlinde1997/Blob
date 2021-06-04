@@ -11,7 +11,7 @@ var patrol_points
 var moveSpeed = 50
 var walk = true
 
-onready var dialoguePopup = $"../CanvasLayer/GUI/DialoguePopup"
+onready var dialoguePopup = $"../GUI/DialoguePopup"
 onready var player = $"../Player"
 onready var player_raycast = $"../Player/RayCast2D"
 onready var cloud_sprite = $Sprite

@@ -6,7 +6,7 @@ var answers setget set_answers
 
 var npc
 onready var hud = $"../HUD"
-onready var player = $"../../../Player"
+onready var player = $"../../Player"
 
 func set_name(name):
 	npc_name = name

@@ -125,9 +125,7 @@ scale = Vector2( 1, 1 )
 position = Vector2( 9120, 7520 )
 scale = Vector2( 1, 1 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="GUI" parent="CanvasLayer" instance=ExtResource( 6 )]
+[node name="GUI" parent="." instance=ExtResource( 6 )]
 [connection signal="body_entered" from="Map/Doors/Up_left_door" to="Map/Doors" method="_on_Up_left_door_body_entered"]
 [connection signal="body_entered" from="Shovel" to="Shovel" method="_on_Shovel_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin1" to="CoinContainer/Coin1" method="_on_Coin_body_entered"]

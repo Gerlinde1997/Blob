@@ -103,9 +103,7 @@ position = Vector2( 688, 184 )
 ] instance=ExtResource( 7 )]
 position = Vector2( 192, 184 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="GUI" parent="CanvasLayer" instance=ExtResource( 5 )]
+[node name="GUI" parent="." instance=ExtResource( 5 )]
 [connection signal="body_entered" from="Map/Doors/Left_Down" to="Map/Doors" method="_on_Left_Down_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin1" to="CoinContainer/Coin1" method="_on_Coin_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin2" to="CoinContainer/Coin2" method="_on_Coin_body_entered"]
