@@ -14,6 +14,9 @@ var moveSpeed = 100
 onready var rayCast = $RayCast2D
 var interactDist = 500
 
+func _ready():
+	moveTarget = self.position
+
 func collision_screening():
 	rayCast.cast_to = rayCastdir * interactDist
 	var detected_obj = rayCast.get_collider()
@@ -59,6 +62,28 @@ func manage_animations_wsad():
 	elif facingDir.y == -1:
 		play_animation("IdleUp")
 
+func manage_animations_mouse():
+	
+	if dir.x > 0.5:
+		play_animation("MoveRight")
+	elif dir.x < 0.5:
+		play_animation("MoveLeft")
+	elif dir.y < 0:
+		play_animation("MoveUp")
+	elif dir.y > 0:
+		play_animation("MoveDown")
+	
+	if dir.x > 0.5:
+		play_animation("IdleRight")
+	elif dir.x < -0.5:
+		play_animation("IdleLeft")
+	elif dir.y < 0.5:
+		play_animation("IdleDown")
+	elif dir.y > -0.5:
+		play_animation("IdleUp")
+	
+
+
 func get_wsad_input():
 	velocity = Vector2()
 	
@@ -86,15 +111,13 @@ func get_mouse_input():
 	if Input.is_action_pressed("click"):
 		moveTarget = get_global_mouse_position()
 
-func _ready():
-	moveTarget = self.position
 
 func _physics_process(_delta):
 	velocity = Vector2()
-
 	# if input is wsad -> get_wsad_input
 	#get_wsad_input()
 	#velocity = move_and_slide(velocity * moveSpeed)
+	#manage_animations_wsad()
 
 	# if input is mouse/touch
 	get_mouse_input()
@@ -103,14 +126,10 @@ func _physics_process(_delta):
 	if position.distance_to(moveTarget) > 5:
 		velocity = dir * moveSpeed
 		velocity = move_and_slide(velocity)
-		print("vel2: ", velocity)
+		print("dir2: ", dir)
+		manage_animations_mouse()
 	
-	print("vel: ", velocity)
-	print("target: ", moveTarget)
-	print("dir: ", dir)
-	print("facedir: ", facingDir)
-	
-	manage_animations_wsad()
+	# voor beide inputs
 	collision_screening()
 	
 func _process(_delta):
