@@ -12,7 +12,7 @@ script = ExtResource( 4 )
 modulate = Color( 0.94902, 0.933333, 0.933333, 1 )
 frames = ExtResource( 1 )
 animation = "IdleDown"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]

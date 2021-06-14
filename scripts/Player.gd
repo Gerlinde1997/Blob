@@ -62,27 +62,26 @@ func manage_animations_wsad():
 	elif facingDir.y == -1:
 		play_animation("IdleUp")
 
-func manage_animations_mouse():
-	
+func manage_animations_mouse_move():
 	if dir.x > 0.5:
 		play_animation("MoveRight")
-	elif dir.x < 0.5:
+	elif dir.x < -0.5:
 		play_animation("MoveLeft")
-	elif dir.y < 0:
+	elif dir.y < 0.5:
 		play_animation("MoveUp")
-	elif dir.y > 0:
+	elif dir.y > -0.5:
 		play_animation("MoveDown")
-	
+
+func manage_animations_mouse_idle():
 	if dir.x > 0.5:
 		play_animation("IdleRight")
 	elif dir.x < -0.5:
 		play_animation("IdleLeft")
-	elif dir.y < 0.5:
+	elif dir.y > 0.5:
 		play_animation("IdleDown")
-	elif dir.y > -0.5:
+	elif dir.y < -0.5:
 		play_animation("IdleUp")
 	
-
 
 func get_wsad_input():
 	velocity = Vector2()
@@ -115,23 +114,29 @@ func get_mouse_input():
 func _physics_process(_delta):
 	velocity = Vector2()
 	# if input is wsad -> get_wsad_input
-	#get_wsad_input()
-	#velocity = move_and_slide(velocity * moveSpeed)
-	#manage_animations_wsad()
+	# get_wsad_input()
+	# velocity = move_and_slide(velocity * moveSpeed)
+	# manage_animations_wsad()
 
 	# if input is mouse/touch
 	get_mouse_input()
 	dir = position.direction_to(moveTarget)
-	rayCastdir = dir
 	if position.distance_to(moveTarget) > 5:
+		rayCastdir = dir
 		velocity = dir * moveSpeed
 		velocity = move_and_slide(velocity)
-		print("dir2: ", dir)
-		manage_animations_mouse()
+		manage_animations_mouse_move()
+
+		if velocity.x == 0 or velocity.y == 0:
+			rayCastdir = dir
+			moveTarget = self.position
+			manage_animations_mouse_idle()
+	else:
+		manage_animations_mouse_idle()
 	
 	# voor beide inputs
 	collision_screening()
-	
+
 func _process(_delta):
 	if Input.is_action_just_pressed("npc_interact"):
 		try_interact()

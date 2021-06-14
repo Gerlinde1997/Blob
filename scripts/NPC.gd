@@ -8,8 +8,13 @@ onready var patrol_path = get_node(patrol_path_node)
 var patrol_index = 0
 var patrol_points
 
-var moveSpeed = 50
+var moveSpeed = 20
 var walk = true
+var npc_target
+var be_target = false
+var prange = 36.00
+var test1 = false
+var test2 = false
 
 onready var dialoguePopup = $"../GUI/DialoguePopup"
 onready var player = $"../Player"
@@ -51,12 +56,12 @@ func set_quest_status(name):
 
 func show_cloud():
 	cloud_sprite.visible = true
-	moveSpeed = 0
+	walk = false
 
 func hide_cloud():
 	if not player_raycast.get_collider() == self:
 		cloud_sprite.visible = false
-		moveSpeed = 20
+		walk = true
 
 func conversation(answer = null):
 	dialoguePopup.npc = self
@@ -232,6 +237,13 @@ func manage_animations():
 
 func _physics_process(_delta):
 	if !walk:
+		if not player_raycast.get_collider() == self and not be_target:
+			hide_cloud()
+		elif not test1 and test2:
+			be_target = false
+			hide_cloud()
+		else:
+			show_cloud()
 		return
 	
 	var target = patrol_points[patrol_index]
@@ -243,3 +255,23 @@ func _physics_process(_delta):
 	velocity = move_and_slide(velocity * moveSpeed)
 	manage_animations()
 	hide_cloud()
+
+func _process(_delta):
+	test1 = compare_pos(npc_target.x, player.moveTarget.x)
+	test2 = compare_pos(npc_target.y, player.moveTarget.y)
+	# print("test1.0: ", test1)
+	# print("test2.0: ", test2)
+
+func compare_pos(a, b, pos_range = prange):
+	return abs(a - b) <= pos_range
+
+func _on_NPC_input_event(_vieuwport, event, _shape_idx):
+	if event is InputEventMouseButton:
+		walk = false
+		be_target = true
+		npc_target = Vector2(self.position.x, self.position.y)
+		#!!!!!! player and NPC are different in scale!!!!!
+		# test1 = compare_pos(npc_target.x, player.moveTarget.x)
+		# test2 = compare_pos(npc_target.y, player.moveTarget.y)
+		# print("test1.1: ", test1)
+		# print("test2.1: ", test2)
