@@ -12,7 +12,7 @@ var moveSpeed = 20
 var walk = true
 var npc_target
 var be_target = false
-var prange = 36.00
+var p_range = 36.00
 var test1 = false
 var test2 = false
 
@@ -256,13 +256,13 @@ func _physics_process(_delta):
 	manage_animations()
 	hide_cloud()
 
-func _process(_delta):
-	test1 = compare_pos(npc_target.x, player.moveTarget.x)
-	test2 = compare_pos(npc_target.y, player.moveTarget.y)
-	# print("test1.0: ", test1)
-	# print("test2.0: ", test2)
+# func _process(_delta):
+# 	# test1 = compare_pos(npc_target.x, player.moveTarget.x)
+# 	# test2 = compare_pos(npc_target.y, player.moveTarget.y)
+# 	print("test1.0: ", test1)
+# 	print("test2.0: ", test2)
 
-func compare_pos(a, b, pos_range = prange):
+func compare_pos(a, b, pos_range = p_range):
 	return abs(a - b) <= pos_range
 
 func _on_NPC_input_event(_vieuwport, event, _shape_idx):
@@ -270,7 +270,6 @@ func _on_NPC_input_event(_vieuwport, event, _shape_idx):
 		walk = false
 		be_target = true
 		npc_target = Vector2(self.position.x, self.position.y)
-		#!!!!!! player and NPC are different in scale!!!!!
 		# test1 = compare_pos(npc_target.x, player.moveTarget.x)
 		# test2 = compare_pos(npc_target.y, player.moveTarget.y)
 		# print("test1.1: ", test1)
