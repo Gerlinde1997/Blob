@@ -7,38 +7,52 @@ var rayCastdir = Vector2()
 
 # Click and move
 var moveTarget = Vector2()
+var npc_target
 var dir
 
 var moveSpeed = 100
 
-onready var rayCast = $RayCast2D
-var interactDist = 500
+var npc
+var hollow
 
 func _ready():
 	moveTarget = self.position
 
-func collision_screening():
-	rayCast.cast_to = rayCastdir * interactDist
-	var detected_obj = rayCast.get_collider()
-	if rayCast.is_colliding():
-		if detected_obj.has_method("conversation"):
-			detected_obj.show_cloud()
-		if detected_obj.has_method("digging"):
-			detected_obj.show_mark()
+func _on_Detection_body_entered(body):
+	if body.has_method("conversation"):
+		npc = body
+		moveTarget = null
+		npc_target = null
+		manage_animations_mouse_idle()
+		#velocity = Vector2()
+		body.show_cloud()
 
-func try_interact():
-	var target = rayCast.get_collider()
-	if rayCast.is_colliding():
+func _on_Detection_body_exited(body):
+	if body.has_method("conversation"):
+		npc = null
+		body.hide_cloud()
 
-		if target.has_method("conversation"):
-			var actions = InputMap.get_actions()
-			for action in actions:
-				if Input.is_action_pressed(action):
-					Input.action_release(action)
-			target.conversation()
-		
-		if target.has_method("digging"):
-			target.digging()
+func _on_Detection_area_entered(area):
+	if area.has_method("digging"):
+		hollow = area
+		area.show_mark()
+
+func _on_Detection_area_exited(area):
+	if area.has_method("digging"):
+		hollow = null
+		area.hide_mark()
+
+func try_interact(target):
+
+	if target.has_method("conversation"):
+		var actions = InputMap.get_actions()
+		for action in actions:
+			if Input.is_action_pressed(action):
+				Input.action_release(action)
+		target.conversation()
+	
+	if target.has_method("digging"):
+		target.digging()
 
 func play_animation(anim_name):
 	if $AnimatedSprite.animation != anim_name:
@@ -119,24 +133,32 @@ func _physics_process(_delta):
 	# manage_animations_wsad()
 
 	# if input is mouse/touch
-	get_mouse_input()
-	dir = position.direction_to(moveTarget)
-	if position.distance_to(moveTarget) > 5:
-		rayCastdir = dir
-		velocity = dir * moveSpeed
-		velocity = move_and_slide(velocity)
-		manage_animations_mouse_move()
-
-		if velocity.x == 0 or velocity.y == 0:
-			rayCastdir = dir
-			moveTarget = self.position
-			manage_animations_mouse_idle()
-	else:
-		manage_animations_mouse_idle()
+	if npc_target:
+		moveTarget = npc_target.position
+	else:	
+		get_mouse_input()
 	
-	# voor beide inputs
-	collision_screening()
+	if moveTarget:
+		dir = position.direction_to(moveTarget)
+		if position.distance_to(moveTarget) > 5:
+			velocity = dir * moveSpeed
+			velocity = move_and_slide(velocity)
+			manage_animations_mouse_move()
+
+			# if velocity.x == 0 or velocity.y == 0:
+			# 	moveTarget = self.position
+			# 	npc_target = false
+			# 	manage_animations_mouse_idle()
+		else:
+			manage_animations_mouse_idle()
 
 func _process(_delta):
-	if Input.is_action_just_pressed("npc_interact"):
-		try_interact()
+
+	if npc:
+		if Input.is_action_just_pressed("npc_interact"):
+			try_interact(npc)
+
+	if hollow:
+		if Input.is_action_just_pressed("npc_interact"):
+			try_interact(hollow)
+

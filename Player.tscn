@@ -15,6 +15,7 @@ modulate = Color( 0.94902, 0.933333, 0.933333, 1 )
 scale = Vector2( 0.2, 0.2 )
 frames = ExtResource( 1 )
 animation = "IdleDown"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
@@ -30,3 +31,7 @@ script = ExtResource( 2 )
 
 [node name="CollisionDetect" type="CollisionShape2D" parent="Detection"]
 shape = SubResource( 1 )
+[connection signal="area_entered" from="Detection" to="." method="_on_Detection_area_entered"]
+[connection signal="area_exited" from="Detection" to="." method="_on_Detection_area_exited"]
+[connection signal="body_entered" from="Detection" to="." method="_on_Detection_body_entered"]
+[connection signal="body_exited" from="Detection" to="." method="_on_Detection_body_exited"]

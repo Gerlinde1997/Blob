@@ -48,6 +48,7 @@ format = 1
 
 [node name="Hollow" parent="Map" instance=ExtResource( 10 )]
 position = Vector2( 160, 168 )
+input_pickable = false
 
 [node name="Doors" type="Node2D" parent="Map"]
 script = ExtResource( 2 )

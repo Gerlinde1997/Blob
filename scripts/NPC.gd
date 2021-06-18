@@ -10,11 +10,11 @@ var patrol_points
 
 var moveSpeed = 20
 var walk = true
-var npc_target
-var be_target = false
-var p_range = 36.00
-var test1 = false
-var test2 = false
+# var npc_target
+# var be_target = false
+# var p_range = 36.00
+# var test1 = false
+# var test2 = false
 
 onready var dialoguePopup = $"../GUI/DialoguePopup"
 onready var player = $"../Player"
@@ -59,14 +59,13 @@ func show_cloud():
 	walk = false
 
 func hide_cloud():
-	if not player_raycast.get_collider() == self:
-		cloud_sprite.visible = false
-		walk = true
+	cloud_sprite.visible = false
+	walk = true
 
 func conversation(answer = null):
 	dialoguePopup.npc = self
 	dialoguePopup.npc_name = self.name
-	manage_talking_animation()
+	manage_talking_animations()
 	set_coin_status()
 	set_quest_status(self.name)
 	match quest_status:
@@ -213,7 +212,7 @@ func play_animation(anim_name):
 	if $AnimatedSprite.animation != anim_name:
 		$AnimatedSprite.play(anim_name)
 
-func manage_talking_animation():
+func manage_talking_animations():
 	var playerAnimation = $"../Player/AnimatedSprite".animation
 	
 	if  playerAnimation == "IdleRight" or playerAnimation == "MoveRight":
@@ -226,24 +225,35 @@ func manage_talking_animation():
 		play_animation("IdleUp")
 
 func manage_animations():
-	if velocity.x > 0:
-		play_animation("MoveRight")
-	elif velocity.x < 0:
-		play_animation("MoveLeft")
-	elif velocity.y < 0:
-		play_animation("MoveUp")
-	elif velocity.y > 0:
-		play_animation("MoveDown")
+	if !walk:
+		if velocity.x > 0:
+			play_animation("IdleRight")
+		elif velocity.x < 0:
+			play_animation("IdleLeft")
+		elif velocity.y < 0:
+			play_animation("IdleUp")
+		elif velocity.y > 0:
+			play_animation("IdleDown")
+	else:
+		if velocity.x > 0:
+			play_animation("MoveRight")
+		elif velocity.x < 0:
+			play_animation("MoveLeft")
+		elif velocity.y < 0:
+			play_animation("MoveUp")
+		elif velocity.y > 0:
+			play_animation("MoveDown")
 
 func _physics_process(_delta):
 	if !walk:
-		if not player_raycast.get_collider() == self and not be_target:
-			hide_cloud()
-		elif not test1 and test2:
-			be_target = false
-			hide_cloud()
-		else:
-			show_cloud()
+		manage_animations()
+		# if not player_raycast.get_collider() == self and not be_target:
+		# 	hide_cloud()
+		# elif not test1 and test2:
+		# 	be_target = false
+		# 	hide_cloud()
+		# else:
+		# 	show_cloud()
 		return
 	
 	var target = patrol_points[patrol_index]
@@ -262,14 +272,15 @@ func _physics_process(_delta):
 # 	print("test1.0: ", test1)
 # 	print("test2.0: ", test2)
 
-func compare_pos(a, b, pos_range = p_range):
-	return abs(a - b) <= pos_range
+# func compare_pos(a, b, pos_range = p_range):
+# 	return abs(a - b) <= pos_range
 
 func _on_NPC_input_event(_vieuwport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		walk = false
-		be_target = true
-		npc_target = Vector2(self.position.x, self.position.y)
+		# be_target = true
+		player.npc_target = self
+		
 		# test1 = compare_pos(npc_target.x, player.moveTarget.x)
 		# test2 = compare_pos(npc_target.y, player.moveTarget.y)
 		# print("test1.1: ", test1)

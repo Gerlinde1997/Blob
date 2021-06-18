@@ -17,8 +17,10 @@ func show_mark():
 	if GlobalVariables.picked_shovel != null:
 		$Sprite.texture = shovel
 
-func hide():
-	if not player_raycast.get_collider() == self:
+func hide_mark():
+	if $Sprite.texture == dirt:
+		$Sprite.texture = dirt
+	else:
 		$Sprite.texture = null
 
 func digging():
@@ -27,9 +29,3 @@ func digging():
 		GlobalVariables.coins += 1
 		$CollisionShape2D.set_deferred("disabled", true)
 		$Sprite.texture = dirt
-	
-func _process(_delta):
-	if $Sprite.texture == dirt:
-		$CollisionShape2D.set_deferred("disabled", true)
-	else:
-		hide()
