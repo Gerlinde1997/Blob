@@ -10,15 +10,9 @@ var patrol_points
 
 var moveSpeed = 20
 var walk = true
-# var npc_target
-# var be_target = false
-# var p_range = 36.00
-# var test1 = false
-# var test2 = false
 
 onready var dialoguePopup = $"../GUI/DialoguePopup"
 onready var player = $"../Player"
-onready var player_raycast = $"../Player/RayCast2D"
 onready var cloud_sprite = $Sprite
 
 var color_dict = {"Red": Color(1, 0, 0, 1), 
@@ -246,14 +240,7 @@ func manage_animations():
 
 func _physics_process(_delta):
 	if !walk:
-		manage_animations()
-		# if not player_raycast.get_collider() == self and not be_target:
-		# 	hide_cloud()
-		# elif not test1 and test2:
-		# 	be_target = false
-		# 	hide_cloud()
-		# else:
-		# 	show_cloud()
+		manage_talking_animations()
 		return
 	
 	var target = patrol_points[patrol_index]
@@ -266,22 +253,9 @@ func _physics_process(_delta):
 	manage_animations()
 	hide_cloud()
 
-# func _process(_delta):
-# 	# test1 = compare_pos(npc_target.x, player.moveTarget.x)
-# 	# test2 = compare_pos(npc_target.y, player.moveTarget.y)
-# 	print("test1.0: ", test1)
-# 	print("test2.0: ", test2)
-
-# func compare_pos(a, b, pos_range = p_range):
-# 	return abs(a - b) <= pos_range
-
-func _on_NPC_input_event(_vieuwport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		walk = false
-		# be_target = true
-		player.npc_target = self
-		
-		# test1 = compare_pos(npc_target.x, player.moveTarget.x)
-		# test2 = compare_pos(npc_target.y, player.moveTarget.y)
-		# print("test1.1: ", test1)
-		# print("test2.1: ", test2)
+# func _on_NPC_input_event(_vieuwport, event, _shape_idx):
+# 	#if in click and move modus deze actief
+# 	if event is InputEventMouseButton:
+# 		walk = false
+# 		if cloud_sprite.visible == false:
+# 			player.npc_target = self

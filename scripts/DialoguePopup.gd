@@ -24,7 +24,6 @@ func open():
 	npc.walk = false
 	hud.npc_popup_hidden = false
 	player.moveTarget = player.position
-	#player.manage_animations_mouse_idle()
 	player.set_physics_process(false)
 	set_visible(true)
 	$AnimationPlayer.playback_speed = 60.0 / dialogue_text.length()

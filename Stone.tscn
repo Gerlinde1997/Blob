@@ -105,6 +105,9 @@ position = Vector2( 192, 184 )
 
 [node name="GUI" parent="." instance=ExtResource( 5 )]
 [connection signal="body_entered" from="Map/Doors/Left_Down" to="Map/Doors" method="_on_Left_Down_body_entered"]
+[connection signal="input_event" from="Blue" to="Blue" method="_on_NPC_input_event"]
+[connection signal="input_event" from="Yellow" to="Yellow" method="_on_NPC_input_event"]
+[connection signal="input_event" from="Red" to="Red" method="_on_NPC_input_event"]
 [connection signal="body_entered" from="CoinContainer/Coin1" to="CoinContainer/Coin1" method="_on_Coin_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin2" to="CoinContainer/Coin2" method="_on_Coin_body_entered"]
 [connection signal="body_entered" from="CoinContainer/Coin3" to="CoinContainer/Coin3" method="_on_Coin_body_entered"]

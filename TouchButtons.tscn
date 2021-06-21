@@ -63,7 +63,7 @@ position = Vector2( 48, 56 )
 normal = ExtResource( 4 )
 pressed = ExtResource( 1 )
 shape = SubResource( 1 )
-action = "npc_interact"
+action = "interact_wsad"
 visibility_mode = 1
 
 [node name="Answer" type="Control" parent="."]
