@@ -16,23 +16,14 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0, 1.0, 1.0 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("ColorRect/Answers:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
 
 [node name="DialoguePopup" type="Control"]
 margin_right = 512.0
 margin_bottom = 56.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_left = -1.0
@@ -71,19 +62,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answers" type="Label" parent="ColorRect"]
-visible = false
-margin_left = 5.0
-margin_top = 42.0
-margin_right = 504.0
-margin_bottom = 55.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "[1] something      [2] someting"
-align = 1
+[node name="Answer_1" type="Button" parent="ColorRect"]
+margin_left = 80.0
+margin_top = 32.0
+margin_right = 117.0
+margin_bottom = 52.0
+text = "test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer_2" type="Button" parent="ColorRect"]
+margin_left = 360.0
+margin_top = 32.0
+margin_right = 405.0
+margin_bottom = 52.0
+text = "test2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/ShowDialogue = SubResource( 1 )
+[connection signal="pressed" from="ColorRect/Answer_1" to="." method="_on_Answer_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="ColorRect/Answer_2" to="." method="_on_Answer_pressed" binds= [ 2 ]]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

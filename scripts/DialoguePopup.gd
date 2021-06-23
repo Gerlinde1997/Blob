@@ -2,7 +2,8 @@ extends Control
 
 var npc_name setget set_name
 var dialogue_text setget set_dialogue
-var answers setget set_answers
+var answer_1 setget set_answer_1
+var answer_2 setget set_answer_2
 
 var npc
 onready var hud = $"../HUD"
@@ -16,9 +17,13 @@ func set_dialogue(npc_text):
 	dialogue_text = npc_text
 	$ColorRect/Dialogue.text = npc_text
 
-func set_answers(player_text):
-	answers = player_text
-	$ColorRect/Answers.text = player_text
+func set_answer_1(player_text_1):
+	answer_1 = player_text_1
+	$ColorRect/Answer_1.text = player_text_1
+
+func set_answer_2(player_text_2):
+	answer_2 = player_text_2
+	$ColorRect/Answer_2.text = player_text_2
 
 func open():
 	npc.walk = false
@@ -41,11 +46,13 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("answer_1"):
-		set_process_input(false)
-		npc.conversation(1)
+		_on_Answer_pressed(1)
 	if event.is_action_pressed("answer_2"):
-		set_process_input(false)
-		npc.conversation(2)
+		_on_Answer_pressed(2)
+
+func _on_Answer_pressed(answer):
+	set_process_input(false)
+	npc.conversation(answer)
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	set_process_input(true)

@@ -68,7 +68,8 @@ func conversation(answer = null):
 				0:
 					dialogue_state = 1					
 					dialoguePopup.dialogue_text = "Hello friend! I am {name}! Do you want to buy my colour?".format({"name": self.name})
-					dialoguePopup.answers = "[1] Yes   [2] No"
+					dialoguePopup.answer_1 = "[1] Yes"
+					dialoguePopup.answer_2 = "[2] No"
 					dialoguePopup.open()
 
 				1:
@@ -80,7 +81,8 @@ func conversation(answer = null):
 									quest_status = QuestStatus.STARTED
 									GlobalVariables.quest_status_by_npc[self.name] = 1
 									dialoguePopup.dialogue_text = "Sorry, you don't have enough coins. See you later!"
-									dialoguePopup.answers = "[1] I try to find more! Bye"
+									dialoguePopup.answer_1 = "[1] I try to find more! Bye"
+									dialoguePopup.answer_2 = ""
 									dialoguePopup.open()
 
 								2:
@@ -88,7 +90,8 @@ func conversation(answer = null):
 									quest_status = QuestStatus.STARTED
 									GlobalVariables.quest_status_by_npc[self.name] = 1
 									dialoguePopup.dialogue_text = "See you later!"
-									dialoguePopup.answers = "[1] Bye!"
+									dialoguePopup.answer_1 = "[1] Bye!"
+									dialoguePopup.answer_2 = ""
 									dialoguePopup.open()
 
 						CoinStatus.ENOUGH:
@@ -98,7 +101,8 @@ func conversation(answer = null):
 									quest_status = QuestStatus.COMPLETED
 									GlobalVariables.quest_status_by_npc[self.name] = 2
 									dialoguePopup.dialogue_text = "Here you are!"
-									dialoguePopup.answers = "[1] Thank you very much! Byebye"
+									dialoguePopup.answer_1 = "[1] Thank you very much! Byebye"
+									dialoguePopup.answer_2 = ""
 									dialoguePopup.open()
 									GlobalVariables.coins -= 2
 									GlobalVariables.colors.append(self.name)
@@ -106,7 +110,8 @@ func conversation(answer = null):
 								2:
 									dialogue_state = 2
 									dialoguePopup.dialogue_text = "See you later!"
-									dialoguePopup.answers = "[1] Bye!"
+									dialoguePopup.answer_1 = "[1] Bye!"
+									dialoguePopup.answer_2 = ""
 									dialoguePopup.open()
 
 				2:
@@ -124,7 +129,8 @@ func conversation(answer = null):
 					dialoguePopup.npc = self
 					dialoguePopup.npc_name = self.name
 					dialoguePopup.dialogue_text = "Hello again! Do you want to buy my colour now?".format({"name": self.name})
-					dialoguePopup.answers = "[1] Yes   [2] No"
+					dialoguePopup.answer_1 = "[1] Yes!"
+					dialoguePopup.answer_2 = "[2] No"
 					dialoguePopup.open()
 				
 				1:
@@ -136,7 +142,8 @@ func conversation(answer = null):
 									quest_status = QuestStatus.STARTED
 									GlobalVariables.quest_status_by_npc[self.name] = 1
 									dialoguePopup.dialogue_text = "Sorry, you don't have enough coins. See you later!"
-									dialoguePopup.answers = "[1] I try to find more! Bye"
+									dialoguePopup.answer_1 = "[1] I try to find more! Bye"
+									dialoguePopup.answer_2 = ""
 									dialoguePopup.open()
 
 								2:
@@ -144,7 +151,8 @@ func conversation(answer = null):
 									quest_status = QuestStatus.STARTED
 									GlobalVariables.quest_status_by_npc[self.name] = 1
 									dialoguePopup.dialogue_text = "See you later!"
-									dialoguePopup.answers = "[1] Bye!"
+									dialoguePopup.answer_1 = "[1] Bye!"
+									dialoguePopup.answer_2 = ""
 									dialoguePopup.open()
 
 						CoinStatus.ENOUGH:
@@ -154,7 +162,8 @@ func conversation(answer = null):
 									quest_status = QuestStatus.COMPLETED
 									GlobalVariables.quest_status_by_npc[self.name] = 2
 									dialoguePopup.dialogue_text = "Here you are!"
-									dialoguePopup.answers = "[1] Thank you very much! Byebye"
+									dialoguePopup.answer_1 = "[1] Thank you very much! Byebye"
+									dialoguePopup.answer_2 = ""
 									dialoguePopup.open()
 									GlobalVariables.coins -= 2
 									GlobalVariables.colors.append(self.name)
@@ -164,7 +173,8 @@ func conversation(answer = null):
 									quest_status = QuestStatus.STARTED
 									GlobalVariables.quest_status_by_npc[self.name] = 1
 									dialoguePopup.dialogue_text = "See you later!"
-									dialoguePopup.answers = "[1] Bye!"
+									dialoguePopup.answer_1 = "[1] Bye!"
+									dialoguePopup.answer_2 = ""
 									dialoguePopup.open()
 
 				2:
@@ -182,7 +192,8 @@ func conversation(answer = null):
 					dialoguePopup.npc = self
 					dialoguePopup.npc_name = self.name
 					dialoguePopup.dialogue_text = "Hi! Have fun with my colour!".format({"name": self.name})
-					dialoguePopup.answers = "[1] Thanks, bye!"
+					dialoguePopup.answer_1 = "[1] Thanks, bye!"
+					dialoguePopup.answer_2 = ""
 					dialoguePopup.open()
 
 				1:
@@ -190,7 +201,8 @@ func conversation(answer = null):
 					dialoguePopup.npc = self
 					dialoguePopup.npc_name = self.name
 					dialoguePopup.dialogue_text = "Hi! Have fun with my colour!".format({"name": self.name})
-					dialoguePopup.answers = "[1] Thanks, bye!"
+					dialoguePopup.answer_1 = "[1] Thanks, bye!"
+					dialoguePopup.answer_2 = ""
 					dialoguePopup.open()
 
 				2:
@@ -253,9 +265,10 @@ func _physics_process(_delta):
 	manage_animations()
 	hide_cloud()
 
-# func _on_NPC_input_event(_vieuwport, event, _shape_idx):
-# 	#if in click and move modus deze actief
-# 	if event is InputEventMouseButton:
-# 		walk = false
-# 		if cloud_sprite.visible == false:
-# 			player.npc_target = self
+# FOR CLICK AND MOVE!
+func _on_NPC_input_event(_vieuwport, event, _shape_idx):
+	#if in click and move modus deze actief
+	if event is InputEventMouseButton:
+		walk = false
+		if cloud_sprite.visible == false:
+			player.npc_target = self

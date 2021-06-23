@@ -24,7 +24,7 @@ func _on_Detection_body_entered(body):
 		moveTarget = null
 		npc_target = null
 		#in click and move mode
-		#manage_animations_mouse_idle()
+		manage_animations_mouse_idle()
 		body.show_cloud()
 
 func _on_Detection_body_exited(body):
@@ -128,34 +128,34 @@ func get_mouse_input():
 func _physics_process(_delta):
 	velocity = Vector2()
 	# if input is wsad or touchbuttons
-	get_wsad_input()
-	velocity = move_and_slide(velocity * moveSpeed)
-	manage_animations_wsad()
+	# get_wsad_input()
+	# velocity = move_and_slide(velocity * moveSpeed)
+	# manage_animations_wsad()
 
 	# if input is click and move(mouse/touch)
-	# if npc_target:
-	# 	moveTarget = npc_target.position
-	# else:	
-	# 	get_mouse_input()
+	if npc_target:
+		moveTarget = npc_target.position
+	else:	
+		get_mouse_input()
 	
-	# if moveTarget:
-	# 	dir = position.direction_to(moveTarget)
-	# 	if position.distance_to(moveTarget) > 5:
-	# 		velocity = dir * moveSpeed
-	# 		velocity = move_and_slide(velocity)
-	# 		manage_animations_mouse_move()
-	# 	else:
-	# 		manage_animations_mouse_idle()
+	if moveTarget:
+		dir = position.direction_to(moveTarget)
+		if position.distance_to(moveTarget) > 5:
+			velocity = dir * moveSpeed
+			velocity = move_and_slide(velocity)
+			manage_animations_mouse_move()
+		else:
+			manage_animations_mouse_idle()
 
 func _process(_delta):
 	#action afhankelijk van gekozen inputvorm
 	if npc:
-		if Input.is_action_just_pressed("interact_wsad"):
+		if Input.is_action_just_pressed("interact_penc"):
 			#in click and move mode
-			#manage_animations_mouse_idle()
+			manage_animations_mouse_idle()
 			try_interact(npc)
 
 	if hollow:
-		if Input.is_action_just_pressed("interact_wsad"):
+		if Input.is_action_just_pressed("interact_penc"):
 			try_interact(hollow)
 
