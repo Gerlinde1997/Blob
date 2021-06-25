@@ -18,3 +18,7 @@ func _ready():
 	if GlobalVariables.picked_shovel != null:
 		shovel.queue_free()
 
+func _input(event):
+	if event.is_action_pressed("back"):
+		SceneChanger.goto_scene("res://Start.tscn")
+
