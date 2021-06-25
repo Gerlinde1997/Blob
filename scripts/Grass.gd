@@ -18,6 +18,3 @@ func _ready():
 	if GlobalVariables.picked_shovel != null:
 		shovel.queue_free()
 
-func _input(event):
-	if event.is_action_pressed("help"):
-		SceneChanger.goto_scene("res://Instructions.tscn")

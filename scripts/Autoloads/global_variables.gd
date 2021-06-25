@@ -2,6 +2,9 @@ extends Node
 
 # Stores all variables needed for loading another room
 
+# chosen input "wsad" or "click_move"
+var chosen_input
+
 # Player variables
 var pos = null
 var animation = null

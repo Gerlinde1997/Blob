@@ -12,34 +12,48 @@ var dir
 
 var moveSpeed = 100
 
-var npc
-var hollow
+var detected_obj
+# var npc
+# var hollow
+
+var func_ref
+var interact_arg
 
 func _ready():
 	moveTarget = self.position
+	set_input_type()
+
+func set_input_type():
+	if GlobalVariables.chosen_input == "wsad":
+		func_ref = funcref(self, '_physics_process_wsad')
+		interact_arg = "interact_wsad"
+	elif GlobalVariables.chosen_input == "click_move":
+		func_ref = funcref(self, '_physics_process_click_move')
+		interact_arg = "interact_c_m"
 
 func _on_Detection_body_entered(body):
 	if body.has_method("conversation"):
-		npc = body
+		body.show_cloud()
+		detected_obj = body
 		moveTarget = null
 		npc_target = null
-		#in click and move mode
-		manage_animations_mouse_idle()
-		body.show_cloud()
-
+		
+		if GlobalVariables.chosen_input == "click_move":
+			manage_animations_mouse_idle()
+		
 func _on_Detection_body_exited(body):
 	if body.has_method("conversation"):
-		npc = null
+		detected_obj = null
 		body.hide_cloud()
 
 func _on_Detection_area_entered(area):
 	if area.has_method("digging"):
-		hollow = area
+		detected_obj = area
 		area.show_mark()
 
 func _on_Detection_area_exited(area):
 	if area.has_method("digging"):
-		hollow = null
+		detected_obj = null
 		area.hide_mark()
 
 func try_interact(target):
@@ -95,7 +109,6 @@ func manage_animations_mouse_idle():
 		play_animation("IdleDown")
 	elif dir.y < -0.5:
 		play_animation("IdleUp")
-	
 
 func get_wsad_input():
 	velocity = Vector2()
@@ -126,13 +139,20 @@ func get_mouse_input():
 
 
 func _physics_process(_delta):
-	velocity = Vector2()
-	# if input is wsad or touchbuttons
-	# get_wsad_input()
-	# velocity = move_and_slide(velocity * moveSpeed)
-	# manage_animations_wsad()
+	func_ref.call_func()
 
-	# if input is click and move(mouse/touch)
+func _physics_process_wsad():
+	velocity = Vector2()
+	get_wsad_input()
+
+	if detected_obj and Input.is_action_pressed("interact_wsad"):
+		try_interact(detected_obj)
+
+	velocity = move_and_slide(velocity * moveSpeed)
+	manage_animations_wsad()
+
+func _physics_process_click_move():
+	velocity = Vector2()
 	if npc_target:
 		moveTarget = npc_target.position
 	else:	
@@ -146,16 +166,6 @@ func _physics_process(_delta):
 			manage_animations_mouse_move()
 		else:
 			manage_animations_mouse_idle()
-
-func _process(_delta):
-	#action afhankelijk van gekozen inputvorm
-	if npc:
-		if Input.is_action_just_pressed("interact_penc"):
-			#in click and move mode
-			manage_animations_mouse_idle()
-			try_interact(npc)
-
-	if hollow:
-		if Input.is_action_just_pressed("interact_penc"):
-			try_interact(hollow)
-
+	
+	else:
+		manage_animations_mouse_idle()

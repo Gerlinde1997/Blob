@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Sprites/Rainbow.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/Rose Cake - Personal Use.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/Start.gd" type="Script" id=3]
 [ext_resource path="res://Close_button.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scripts/input_options.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -26,6 +25,34 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 36
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="DynamicFont" id=14]
+size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="StyleBoxEmpty" id=18]
+
+[sub_resource type="StyleBoxEmpty" id=19]
+
+[sub_resource type="DynamicFont" id=20]
+size = 60
 font_data = ExtResource( 2 )
 
 [node name="Start" type="Control"]
@@ -92,37 +119,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Start" type="Button" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -72.0
-margin_top = 116.0
-margin_right = 64.0
-margin_bottom = 180.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/disabled = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
-custom_fonts/font = SubResource( 7 )
-custom_colors/font_color = Color( 0.980392, 0.235294, 0.941176, 0.647059 )
-custom_colors/font_color_hover = Color( 0.980392, 0.235294, 0.941176, 0.784314 )
-custom_colors/font_color_pressed = Color( 0.980392, 0.235294, 0.941176, 1 )
-text = "(Start)"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Help" type="Button" parent="CanvasLayer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -72.0
+margin_left = -56.0
 margin_top = 164.0
-margin_right = 64.0
+margin_right = 80.0
 margin_bottom = 228.0
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -161,36 +165,43 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="input_options" type="Control" parent="CanvasLayer"]
-margin_right = 192.0
-margin_bottom = 104.0
-script = ExtResource( 5 )
+[node name="Start_wsad" type="Button" parent="CanvasLayer"]
+margin_left = 144.0
+margin_top = 408.0
+margin_right = 490.0
+margin_bottom = 466.0
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0.98, 0.23, 0.94, 0.64 )
+custom_colors/font_color_hover = Color( 0.98, 0.23, 0.94, 0.78 )
+custom_colors/font_color_pressed = Color( 0.98, 0.23, 0.94, 1 )
+text = "(Start with keyboard)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="input_wsad" type="CheckBox" parent="CanvasLayer/input_options"]
-margin_left = 40.0
-margin_top = 32.0
-margin_right = 180.0
-margin_bottom = 56.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "keyboard/buttons"
+[node name="Start_click_move" type="Button" parent="CanvasLayer"]
+margin_left = 560.0
+margin_top = 408.0
+margin_right = 858.0
+margin_bottom = 466.0
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/disabled = SubResource( 18 )
+custom_styles/normal = SubResource( 19 )
+custom_fonts/font = SubResource( 20 )
+custom_colors/font_color = Color( 0.98, 0.23, 0.94, 0.64 )
+custom_colors/font_color_hover = Color( 0.98, 0.23, 0.94, 0.78 )
+custom_colors/font_color_pressed = Color( 0.98, 0.23, 0.94, 1 )
+text = "(Start with mouse)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="input_click_move" type="CheckBox" parent="CanvasLayer/input_options"]
-margin_left = 40.0
-margin_top = 64.0
-margin_right = 161.0
-margin_bottom = 88.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "mouse/touch"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="pressed" from="CanvasLayer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="CanvasLayer/Help" to="." method="_on_Help_pressed"]
-[connection signal="toggled" from="CanvasLayer/input_options/input_wsad" to="CanvasLayer/input_options" method="_on_input_wsad_toggled"]
-[connection signal="toggled" from="CanvasLayer/input_options/input_click_move" to="CanvasLayer/input_options" method="_on_input_click_move_toggled"]
+[connection signal="pressed" from="CanvasLayer/Start_wsad" to="." method="_on_Start_wsad_pressed"]
+[connection signal="pressed" from="CanvasLayer/Start_click_move" to="." method="_on_Start_click_move_pressed"]

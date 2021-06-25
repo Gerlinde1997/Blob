@@ -267,8 +267,13 @@ func _physics_process(_delta):
 
 # FOR CLICK AND MOVE!
 func _on_NPC_input_event(_vieuwport, event, _shape_idx):
-	#if in click and move modus deze actief
-	if event is InputEventMouseButton:
-		walk = false
-		if cloud_sprite.visible == false:
-			player.npc_target = self
+	if GlobalVariables.chosen_input == "click_move":
+		if event is InputEventMouseButton:
+			walk = false
+			if cloud_sprite.visible:
+				conversation()
+			else:
+				player.npc_target = self
+			
+	else:
+		pass

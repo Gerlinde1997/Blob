@@ -22,6 +22,11 @@ func hide_mark():
 	else:
 		$Sprite.texture = null
 
+func _on_Hollow_input_event(_vieuwport, event, _shape_idx):
+	if GlobalVariables.chosen_input == "click_move":
+		if event is InputEventMouseButton:
+			digging()
+
 func digging():
 	if GlobalVariables.picked_shovel != null:
 		GlobalVariables.picked_hidden_coin = self.get_path()
