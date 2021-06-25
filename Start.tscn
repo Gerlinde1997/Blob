@@ -160,16 +160,20 @@ margin_bottom = -16.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 0.419608, 0.419608, 1 )
-text = "(C) 2021.2 Gerlinde van Ginkel"
+text = "(C) 2021 Gerlinde van Ginkel"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Start_wsad" type="Button" parent="CanvasLayer"]
-margin_left = 144.0
-margin_top = 408.0
-margin_right = 490.0
-margin_bottom = 466.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -368.0
+margin_top = 100.0
+margin_right = -22.0
+margin_bottom = 158.0
 custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 10 )
 custom_styles/focus = SubResource( 11 )
@@ -185,10 +189,14 @@ __meta__ = {
 }
 
 [node name="Start_click_move" type="Button" parent="CanvasLayer"]
-margin_left = 560.0
-margin_top = 408.0
-margin_right = 858.0
-margin_bottom = 466.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 48.0
+margin_top = 100.0
+margin_right = 346.0
+margin_bottom = 158.0
 custom_styles/hover = SubResource( 15 )
 custom_styles/pressed = SubResource( 16 )
 custom_styles/focus = SubResource( 17 )

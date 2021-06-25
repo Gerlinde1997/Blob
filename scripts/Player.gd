@@ -6,21 +6,18 @@ var facingDir = Vector2()
 var rayCastdir = Vector2()
 
 # Click and move
-var moveTarget = Vector2()
+var moveTarget = null
 var npc_target
-var dir
+var dir = Vector2()
 
 var moveSpeed = 100
 
 var detected_obj
-# var npc
-# var hollow
 
 var func_ref
 var interact_arg
 
 func _ready():
-	moveTarget = self.position
 	set_input_type()
 
 func set_input_type():
@@ -37,10 +34,7 @@ func _on_Detection_body_entered(body):
 		detected_obj = body
 		moveTarget = null
 		npc_target = null
-		
-		if GlobalVariables.chosen_input == "click_move":
-			manage_animations_mouse_idle()
-		
+
 func _on_Detection_body_exited(body):
 	if body.has_method("conversation"):
 		detected_obj = null
@@ -57,12 +51,12 @@ func _on_Detection_area_exited(area):
 		area.hide_mark()
 
 func try_interact(target):
-
 	if target.has_method("conversation"):
 		var actions = InputMap.get_actions()
 		for action in actions:
 			if Input.is_action_pressed(action):
 				Input.action_release(action)
+		velocity = Vector2()
 		target.conversation()
 	
 	if target.has_method("digging"):
@@ -90,25 +84,25 @@ func manage_animations_wsad():
 	elif facingDir.y == -1:
 		play_animation("IdleUp")
 
-func manage_animations_mouse_move():
-	if dir.x > 0.5:
-		play_animation("MoveRight")
-	elif dir.x < -0.5:
-		play_animation("MoveLeft")
-	elif dir.y < 0.5:
-		play_animation("MoveUp")
-	elif dir.y > -0.5:
-		play_animation("MoveDown")
-
-func manage_animations_mouse_idle():
-	if dir.x > 0.5:
-		play_animation("IdleRight")
-	elif dir.x < -0.5:
-		play_animation("IdleLeft")
-	elif dir.y > 0.5:
-		play_animation("IdleDown")
-	elif dir.y < -0.5:
-		play_animation("IdleUp")
+func manage_animations_mouse():
+	if moveTarget:
+		if dir.x > 0.5:
+			play_animation("MoveRight")
+		elif dir.x < -0.5:
+			play_animation("MoveLeft")
+		elif dir.y < 0.5:
+			play_animation("MoveUp")
+		elif dir.y > -0.5:
+			play_animation("MoveDown")
+	else:
+		if dir.x > 0.5:
+			play_animation("IdleRight")
+		elif dir.x < -0.5:
+			play_animation("IdleLeft")
+		elif dir.y > 0.5:
+			play_animation("IdleDown")
+		elif dir.y < -0.5:
+			play_animation("IdleUp")
 
 func get_wsad_input():
 	velocity = Vector2()
@@ -137,11 +131,15 @@ func get_mouse_input():
 	if Input.is_action_pressed("click"):
 		moveTarget = get_global_mouse_position()
 
-
 func _physics_process(_delta):
 	func_ref.call_func()
 
 func _physics_process_wsad():
+	# if detected_obj:
+	# 	if detected_obj.has_method("conversation"):
+	# 		get_wsad_input()
+	# 		return
+	
 	velocity = Vector2()
 	get_wsad_input()
 
@@ -149,7 +147,12 @@ func _physics_process_wsad():
 		try_interact(detected_obj)
 
 	velocity = move_and_slide(velocity * moveSpeed)
-	manage_animations_wsad()
+
+func _process(_delta):
+	if GlobalVariables.chosen_input == "wsad":
+		manage_animations_wsad()
+	if GlobalVariables.chosen_input == "click_move":
+		manage_animations_mouse()
 
 func _physics_process_click_move():
 	velocity = Vector2()
@@ -163,9 +166,5 @@ func _physics_process_click_move():
 		if position.distance_to(moveTarget) > 5:
 			velocity = dir * moveSpeed
 			velocity = move_and_slide(velocity)
-			manage_animations_mouse_move()
 		else:
-			manage_animations_mouse_idle()
-	
-	else:
-		manage_animations_mouse_idle()
+			moveTarget = null

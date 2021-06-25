@@ -271,9 +271,8 @@ func _on_NPC_input_event(_vieuwport, event, _shape_idx):
 		if event is InputEventMouseButton:
 			walk = false
 			if cloud_sprite.visible:
+				player.moveTarget = null
 				conversation()
 			else:
 				player.npc_target = self
-			
-	else:
-		pass
+

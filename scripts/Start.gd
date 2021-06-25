@@ -2,6 +2,7 @@ extends Control
 
 func _on_Start_wsad_pressed():
 	GlobalVariables.chosen_input = "wsad"
+	#var _to_grass = get_tree().change_scene("res://Grass.tscn")
 	SceneChanger.goto_scene("res://Grass.tscn")
 
 func _on_Start_click_move_pressed():

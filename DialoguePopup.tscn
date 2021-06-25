@@ -1,9 +1,28 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/DialoguePopup.gd" type="Script" id=1]
 
-[sub_resource type="Animation" id=1]
-resource_name = "ShowDialogue"
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="Animation" id=11]
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect/Dialogue:percent_visible")
 tracks/0/interp = 1
@@ -67,7 +86,16 @@ margin_left = 80.0
 margin_top = 32.0
 margin_right = 117.0
 margin_bottom = 52.0
-text = "test"
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "answer1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -77,13 +105,22 @@ margin_left = 360.0
 margin_top = 32.0
 margin_right = 405.0
 margin_bottom = 52.0
-text = "test2"
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "answer2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/ShowDialogue = SubResource( 1 )
+anims/ShowDialogue = SubResource( 11 )
 [connection signal="pressed" from="ColorRect/Answer_1" to="." method="_on_Answer_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="ColorRect/Answer_2" to="." method="_on_Answer_pressed" binds= [ 2 ]]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

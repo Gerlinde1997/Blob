@@ -12,7 +12,10 @@ func _on_Help_button_toggled(button_pressed):
 
 func _input(event):
 	if event.is_action_pressed("help"):
-		_on_Help_button_toggled(true)
+		if !self.visible:
+			_on_Help_button_toggled(true)
+		else:
+			_on_Help_button_toggled(false)
 
 func open():
 	set_visible(true)

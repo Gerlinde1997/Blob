@@ -5,6 +5,7 @@ func _on_Up_left_door_body_entered(_body):
 	# to down left stone
 	GlobalVariables.animation = "IdleUp"
 	GlobalVariables.pos = Vector2(320, 871)
+	#var _to_stone = get_tree().change_scene("res://Stone.tscn")
 	SceneChanger.goto_scene("res://Stone.tscn")
 
 
