@@ -47,7 +47,7 @@ tile_set = ExtResource( 1 )
 format = 1
 
 [node name="Hollow" parent="Map" instance=ExtResource( 10 )]
-position = Vector2( 160, 168 )
+position = Vector2( 1320, 352 )
 
 [node name="Doors" type="Node2D" parent="Map"]
 script = ExtResource( 2 )
@@ -84,7 +84,7 @@ position = Vector2( 544, 544 )
 position = Vector2( 1216, 608 )
 
 [node name="Shovel" parent="." instance=ExtResource( 9 )]
-position = Vector2( 304, 208 )
+position = Vector2( 664, 480 )
 
 [node name="CoinContainer" type="Node2D" parent="."]
 scale = Vector2( 0.1, 0.1 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Close_button.tscn" type="PackedScene" id=2]
@@ -20,16 +20,6 @@ font_data = ExtResource( 8 )
 size = 55
 font_data = ExtResource( 8 )
 
-[sub_resource type="StyleBoxEmpty" id=4]
-
-[sub_resource type="StyleBoxEmpty" id=5]
-
-[sub_resource type="StyleBoxEmpty" id=6]
-
-[sub_resource type="StyleBoxEmpty" id=7]
-
-[sub_resource type="StyleBoxEmpty" id=8]
-
 [node name="GUI" type="CanvasLayer"]
 
 [node name="HUD" parent="." instance=ExtResource( 1 )]
@@ -41,18 +31,16 @@ margin_bottom = 32.0
 [node name="Close_button" parent="." instance=ExtResource( 2 )]
 margin_left = -48.0
 margin_top = 27.0
-margin_right = -40.0
-margin_bottom = 41.0
+margin_right = -24.0
+margin_bottom = 58.0
 
 [node name="DialoguePopup" parent="." instance=ExtResource( 4 )]
 anchor_left = 0.5
-anchor_top = 0.987
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.987
-margin_left = -256.0
-margin_top = -80.2
-margin_right = 256.0
-margin_bottom = -24.2
+anchor_bottom = 1.0
+margin_top = -144.0
+margin_bottom = -16.0
 
 [node name="HelpPopup" type="Control" parent="."]
 pause_mode = 2
@@ -73,7 +61,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="HelpPopup"]
 margin_right = 960.0
 margin_bottom = 568.0
-color = Color( 0.639216, 0.988235, 0.921569, 1 )
+color = Color( 0.639216, 0.988235, 0.921569, 0.811765 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -181,19 +169,10 @@ __meta__ = {
 pause_mode = 2
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -88.0
-margin_top = 24.0
-margin_right = -70.0
-margin_bottom = 44.0
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/disabled = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
-custom_colors/font_color_disabled = Color( 1, 0, 0, 1 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+margin_left = -96.0
+margin_top = 32.0
+margin_right = -72.0
+margin_bottom = 64.0
 toggle_mode = true
 
 [node name="TouchButtons" parent="." instance=ExtResource( 3 )]

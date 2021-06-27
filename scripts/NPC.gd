@@ -68,7 +68,7 @@ func conversation(answer = null):
 				0:
 					dialogue_state = 1					
 					dialoguePopup.dialogue_text = "Hello friend! I am {name}! Do you want to buy my colour?".format({"name": self.name})
-					dialoguePopup.answer_1 = "[1] Yes"
+					dialoguePopup.answer_1 = "Yes [1]"
 					dialoguePopup.answer_2 = "[2] No"
 					dialoguePopup.open()
 
@@ -81,7 +81,7 @@ func conversation(answer = null):
 									quest_status = QuestStatus.STARTED
 									GlobalVariables.quest_status_by_npc[self.name] = 1
 									dialoguePopup.dialogue_text = "Sorry, you don't have enough coins. See you later!"
-									dialoguePopup.answer_1 = "[1] I try to find more! Bye"
+									dialoguePopup.answer_1 = "I try to find more! Bye [1]"
 									dialoguePopup.answer_2 = ""
 									dialoguePopup.open()
 
@@ -90,7 +90,7 @@ func conversation(answer = null):
 									quest_status = QuestStatus.STARTED
 									GlobalVariables.quest_status_by_npc[self.name] = 1
 									dialoguePopup.dialogue_text = "See you later!"
-									dialoguePopup.answer_1 = "[1] Bye!"
+									dialoguePopup.answer_1 = "Bye [1]!"
 									dialoguePopup.answer_2 = ""
 									dialoguePopup.open()
 
@@ -101,7 +101,7 @@ func conversation(answer = null):
 									quest_status = QuestStatus.COMPLETED
 									GlobalVariables.quest_status_by_npc[self.name] = 2
 									dialoguePopup.dialogue_text = "Here you are!"
-									dialoguePopup.answer_1 = "[1] Thank you very much! Byebye"
+									dialoguePopup.answer_1 = "Thank you very much! Byebye [1]"
 									dialoguePopup.answer_2 = ""
 									dialoguePopup.open()
 									GlobalVariables.coins -= 2
@@ -110,7 +110,7 @@ func conversation(answer = null):
 								2:
 									dialogue_state = 2
 									dialoguePopup.dialogue_text = "See you later!"
-									dialoguePopup.answer_1 = "[1] Bye!"
+									dialoguePopup.answer_1 = "Bye! [1]"
 									dialoguePopup.answer_2 = ""
 									dialoguePopup.open()
 
@@ -129,7 +129,7 @@ func conversation(answer = null):
 					dialoguePopup.npc = self
 					dialoguePopup.npc_name = self.name
 					dialoguePopup.dialogue_text = "Hello again! Do you want to buy my colour now?".format({"name": self.name})
-					dialoguePopup.answer_1 = "[1] Yes!"
+					dialoguePopup.answer_1 = "Yes! [1]"
 					dialoguePopup.answer_2 = "[2] No"
 					dialoguePopup.open()
 				
@@ -142,7 +142,7 @@ func conversation(answer = null):
 									quest_status = QuestStatus.STARTED
 									GlobalVariables.quest_status_by_npc[self.name] = 1
 									dialoguePopup.dialogue_text = "Sorry, you don't have enough coins. See you later!"
-									dialoguePopup.answer_1 = "[1] I try to find more! Bye"
+									dialoguePopup.answer_1 = "I try to find more! Bye [1]"
 									dialoguePopup.answer_2 = ""
 									dialoguePopup.open()
 
@@ -151,7 +151,7 @@ func conversation(answer = null):
 									quest_status = QuestStatus.STARTED
 									GlobalVariables.quest_status_by_npc[self.name] = 1
 									dialoguePopup.dialogue_text = "See you later!"
-									dialoguePopup.answer_1 = "[1] Bye!"
+									dialoguePopup.answer_1 = "Bye! [1]"
 									dialoguePopup.answer_2 = ""
 									dialoguePopup.open()
 
@@ -162,7 +162,7 @@ func conversation(answer = null):
 									quest_status = QuestStatus.COMPLETED
 									GlobalVariables.quest_status_by_npc[self.name] = 2
 									dialoguePopup.dialogue_text = "Here you are!"
-									dialoguePopup.answer_1 = "[1] Thank you very much! Byebye"
+									dialoguePopup.answer_1 = "Thank you very much! Byebye [1]"
 									dialoguePopup.answer_2 = ""
 									dialoguePopup.open()
 									GlobalVariables.coins -= 2
@@ -173,7 +173,7 @@ func conversation(answer = null):
 									quest_status = QuestStatus.STARTED
 									GlobalVariables.quest_status_by_npc[self.name] = 1
 									dialoguePopup.dialogue_text = "See you later!"
-									dialoguePopup.answer_1 = "[1] Bye!"
+									dialoguePopup.answer_1 = "Bye! [1]"
 									dialoguePopup.answer_2 = ""
 									dialoguePopup.open()
 
@@ -192,7 +192,7 @@ func conversation(answer = null):
 					dialoguePopup.npc = self
 					dialoguePopup.npc_name = self.name
 					dialoguePopup.dialogue_text = "Hi! Have fun with my colour!".format({"name": self.name})
-					dialoguePopup.answer_1 = "[1] Thanks, bye!"
+					dialoguePopup.answer_1 = "Thanks, bye! [1]"
 					dialoguePopup.answer_2 = ""
 					dialoguePopup.open()
 
@@ -201,7 +201,7 @@ func conversation(answer = null):
 					dialoguePopup.npc = self
 					dialoguePopup.npc_name = self.name
 					dialoguePopup.dialogue_text = "Hi! Have fun with my colour!".format({"name": self.name})
-					dialoguePopup.answer_1 = "[1] Thanks, bye!"
+					dialoguePopup.answer_1 = "Thanks, bye! [1]"
 					dialoguePopup.answer_2 = ""
 					dialoguePopup.open()
 

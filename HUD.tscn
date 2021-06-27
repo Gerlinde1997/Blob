@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/coin-794 (1).png" type="Texture" id=1]
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/shovel_1.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/Rose Cake - Personal Use.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+use_filter = true
+font_data = ExtResource( 4 )
 
 [node name="HUD" type="Control"]
 script = ExtResource( 2 )
@@ -30,11 +36,14 @@ __meta__ = {
 }
 
 [node name="Count" type="Label" parent="Background"]
-margin_left = 88.0
-margin_top = 24.0
-margin_right = 96.0
-margin_bottom = 38.0
+margin_left = 96.0
+margin_top = 16.0
+margin_right = 107.0
+margin_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
 rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 __meta__ = {

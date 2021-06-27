@@ -18,17 +18,13 @@ _global_script_class_icons={
 config/name="Blob"
 run/main_scene="res://Start.tscn"
 config/icon="res://Sprites/blob_256x256/2021-05-07_11.23.50.png"
-config/windows_native_icon="res://2021-05-07_11.23.50.ico"
+config/windows_native_icon="res://2021-05-07_11.23.50 (1).ico"
 
 [autoload]
 
 SceneChanger="*res://scripts/Autoloads/Scene_changer.gd"
 GlobalVariables="*res://scripts/Autoloads/global_variables.gd"
 JsonData="*res://scripts/Autoloads/JSONData.gd"
-
-[display]
-
-window/size/fullscreen=true
 
 [input]
 

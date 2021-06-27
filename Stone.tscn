@@ -14,12 +14,12 @@ b = Vector2( -64, -6.10352e-05 )
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 320, 584, 0, 0, 0, 0, 496, 592, 0, 0, 0, 0, 544, 640, 0, 0, 0, 0, 584, 696, 0, 0, 0, 0, 600, 784, 0, 0, 0, 0, 536, 728, 0, 0, 0, 0, 520, 640, 0, 0, 0, 0, 520, 640, 0, 0, 0, 0, 320, 584 )
+"points": PoolVector2Array( 0, 0, 0, 0, 320, 584, 0, 0, 0, 0, 496, 592, 0, 0, 0, 0, 544, 640, 0, 0, 0, 0, 584, 696, 0, 0, 0, 0, 600, 784, 0, 0, 0, 0, 488, 800, 0, 0, 0, 0, 392, 752, 0, 0, 0, 0, 320, 584 )
 }
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1136, 672, 0, 0, 0, 0, 1152, 144, 0, 0, 0, 0, 1136, 664, 0, 0, 0, 0, 1136, 672 )
+"points": PoolVector2Array( 0, 0, 0, 0, 1136, 672, 0, 0, 0, 0, 768, 608, 0, 0, 0, 0, 736, 328, 0, 0, 0, 0, 776.678, 145.25, 0, 0, 0, 0, 1027.53, 80.75, 0, 0, 0, 0, 1095.32, 252.75, 0, 0, 0, 0, 1136, 672 )
 }
 
 [sub_resource type="Curve2D" id=4]
@@ -59,6 +59,8 @@ shape = SubResource( 1 )
 curve = SubResource( 2 )
 
 [node name="RedPath" type="Path2D" parent="Map"]
+position = Vector2( -204.48, 171.907 )
+scale = Vector2( 1.18, 0.744186 )
 curve = SubResource( 3 )
 
 [node name="YellowPath" type="Path2D" parent="Map"]

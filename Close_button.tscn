@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/Close_button.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Rose Cake - Personal Use.otf" type="DynamicFontData" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -12,18 +13,26 @@
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
+[sub_resource type="DynamicFont" id=6]
+size = 32
+use_filter = true
+font_data = ExtResource( 2 )
+
 [node name="Close_button" type="Button"]
 anchor_left = 1.0
 anchor_right = 1.0
+margin_right = 24.0
+margin_bottom = 31.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.956863, 0.0392157, 0.0392157, 1 )
 custom_colors/font_color_hover = Color( 0.333333, 0.0117647, 0.0117647, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "X"
+text = "x"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

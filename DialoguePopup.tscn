@@ -1,8 +1,19 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/DialoguePopup.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Rose Cake - Personal Use.otf" type="DynamicFontData" id=2]
 
-[sub_resource type="StyleBoxEmpty" id=12]
+[sub_resource type="DynamicFont" id=12]
+size = 32
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 32
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -11,6 +22,11 @@
 [sub_resource type="StyleBoxEmpty" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="DynamicFont" id=14]
+size = 32
+use_filter = true
+font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxEmpty" id=6]
 
@@ -21,6 +37,11 @@
 [sub_resource type="StyleBoxEmpty" id=9]
 
 [sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="DynamicFont" id=15]
+size = 32
+use_filter = true
+font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=11]
 tracks/0/type = "value"
@@ -37,8 +58,9 @@ tracks/0/keys = {
 }
 
 [node name="DialoguePopup" type="Control"]
-margin_right = 512.0
-margin_bottom = 56.0
+margin_left = -256.0
+margin_top = -128.0
+margin_right = 256.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -50,9 +72,10 @@ anchor_top = -10.714
 anchor_right = -1.0
 anchor_bottom = -10.714
 margin_left = 512.0
-margin_top = 599.984
+margin_top = 1371.39
 margin_right = 1024.0
-margin_bottom = 655.984
+margin_bottom = 1499.39
+color = Color( 0.639216, 0.988235, 0.921569, 0.701961 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -61,60 +84,65 @@ __meta__ = {
 margin_left = 5.0
 margin_top = 2.0
 margin_right = 504.0
-margin_bottom = 16.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "MobName"
+text = "NPCName"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Dialogue" type="Label" parent="ColorRect"]
 margin_left = 8.0
-margin_top = 16.0
+margin_top = 32.0
 margin_right = 507.0
-margin_bottom = 40.0
-custom_colors/font_color = Color( 0.360784, 0.313726, 0.313726, 1 )
-text = "bla bla bla"
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0.247059, 0.247059, 0.247059, 1 )
+text = "blablabla"
 autowrap = true
-percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Answer_1" type="Button" parent="ColorRect"]
-margin_left = 80.0
-margin_top = 32.0
-margin_right = 117.0
-margin_bottom = 52.0
-custom_styles/hover = SubResource( 12 )
+margin_left = 8.0
+margin_top = 96.0
+margin_right = 240.0
+margin_bottom = 127.0
+custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color_disabled = Color( 0.407843, 0.407843, 0.407843, 1 )
+custom_colors/font_color = Color( 0.40683, 0.40683, 0.40683, 1 )
+custom_colors/font_color_hover = Color( 0.407843, 0.407843, 0.407843, 1 )
+custom_colors/font_color_pressed = Color( 0.407843, 0.407843, 0.407843, 1 )
 text = "answer1"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Answer_2" type="Button" parent="ColorRect"]
-margin_left = 360.0
-margin_top = 32.0
-margin_right = 405.0
-margin_bottom = 52.0
+margin_left = 272.0
+margin_top = 96.0
+margin_right = 512.0
+margin_bottom = 127.0
 custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/focus = SubResource( 8 )
 custom_styles/disabled = SubResource( 9 )
 custom_styles/normal = SubResource( 10 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 15 )
+custom_colors/font_color_disabled = Color( 0.407843, 0.407843, 0.407843, 1 )
+custom_colors/font_color = Color( 0.407843, 0.407843, 0.407843, 1 )
+custom_colors/font_color_hover = Color( 0.407843, 0.407843, 0.407843, 1 )
+custom_colors/font_color_pressed = Color( 0.407843, 0.407843, 0.407843, 1 )
 text = "answer2"
+align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
