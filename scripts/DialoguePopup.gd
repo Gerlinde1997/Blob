@@ -26,16 +26,13 @@ func set_answer_2(player_text_2):
 	$ColorRect/Answer_2.text = player_text_2
 
 func open():
-	npc.walk = false
 	hud.npc_popup_hidden = false
-	player.moveTarget = null
 	player.set_physics_process(false)
 	set_visible(true)
 	$AnimationPlayer.playback_speed = 60.0 / dialogue_text.length()
 	$AnimationPlayer.play("ShowDialogue")
 
 func close():
-	npc.walk = true
 	hud.npc_popup_hidden = true
 	player.set_physics_process(true)
 	set_visible(false)

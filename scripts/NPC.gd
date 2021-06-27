@@ -57,6 +57,8 @@ func hide_cloud():
 	walk = true
 
 func conversation(answer = null):
+	player.moveTarget = null
+	player.npc_target = null
 	dialoguePopup.npc = self
 	dialoguePopup.npc_name = self.name
 	manage_talking_animations()
@@ -270,9 +272,7 @@ func _on_NPC_input_event(_vieuwport, event, _shape_idx):
 	if GlobalVariables.chosen_input == "click_move":
 		if event is InputEventMouseButton:
 			walk = false
+			player.npc_target = self
 			if cloud_sprite.visible:
 				player.moveTarget = null
 				conversation()
-			else:
-				player.npc_target = self
-
