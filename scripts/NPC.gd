@@ -1,19 +1,19 @@
 extends KinematicBody2D
 
+enum QuestStatus {NOT_STARTED, STARTED, COMPLETED}
+enum CoinStatus {NOT_ENOUGH, ENOUGH}
+
+const MOVESPEED = 20
+
+var quest_status
+var coin_status
+var dialogue_state = 0
+
 var velocity = Vector2()
 var facingDir = Vector2()
-
-onready var patrol_path_node = "../Map/{name}Path".format({"name": self.name})
-onready var patrol_path = get_node(patrol_path_node)
 var patrol_index = 0
 var patrol_points
-
-var moveSpeed = 20
 var walk = true
-
-onready var dialoguePopup = $"../GUI/DialoguePopup"
-onready var player = $"../Player"
-onready var cloud_sprite = $Sprite
 
 var color_dict = {"Red": Color(1, 0, 0, 1), 
 				"Orange": Color(0.9, 0.5, 0, 1), 
@@ -22,11 +22,12 @@ var color_dict = {"Red": Color(1, 0, 0, 1),
 				"Blue": Color(0, 0.5, 0.9, 1),
 				"Purple": Color(0.45, 0, 1, 1)}
 
-enum QuestStatus {NOT_STARTED, STARTED, COMPLETED}
-enum CoinStatus {NOT_ENOUGH, ENOUGH}
-var quest_status
-var coin_status
-var dialogue_state = 0
+onready var patrol_path_node = "../Map/{name}Path".format({"name": self.name})
+onready var patrol_path = get_node(patrol_path_node)
+onready var dialoguePopup = $"../GUI/DialoguePopup"
+onready var player = $"../Player"
+onready var cloud_sprite = $Sprite
+
 
 func _ready():
 	if patrol_path:
@@ -34,11 +35,29 @@ func _ready():
 	
 	$AnimatedSprite.self_modulate = color_dict[self.name]
 
+
+func _physics_process(_delta):
+	if !walk:
+		manage_talking_animations()
+		return
+	
+	var target = patrol_points[patrol_index]
+	if position.distance_to(target) < 1:
+		patrol_index = wrapi(patrol_index + 1, 0, patrol_points.size())
+		target = patrol_points[patrol_index]
+
+	velocity = (target - position).normalized()
+	velocity = move_and_slide(velocity * MOVESPEED)
+	manage_animations()
+	hide_cloud()
+
+
 func set_coin_status():
 	if GlobalVariables.coins >= 2:
 		coin_status = CoinStatus.ENOUGH
 	else:
 		coin_status = CoinStatus.NOT_ENOUGH
+
 
 func set_quest_status(name):
 	if GlobalVariables.quest_status_by_npc[name] == 0:
@@ -48,13 +67,16 @@ func set_quest_status(name):
 	elif GlobalVariables.quest_status_by_npc[name] == 2:
 		quest_status = QuestStatus.COMPLETED
 
+
 func show_cloud():
 	cloud_sprite.visible = true
 	walk = false
 
+
 func hide_cloud():
 	cloud_sprite.visible = false
 	walk = true
+
 
 func conversation(answer = null):
 	player.moveTarget = null
@@ -220,6 +242,7 @@ func play_animation(anim_name):
 	if $AnimatedSprite.animation != anim_name:
 		$AnimatedSprite.play(anim_name)
 
+
 func manage_talking_animations():
 	var playerAnimation = $"../Player/AnimatedSprite".animation
 	
@@ -231,6 +254,7 @@ func manage_talking_animations():
 		play_animation("IdleDown")
 	elif playerAnimation == "IdleUp" or playerAnimation == "MoveDown":
 		play_animation("IdleUp")
+
 
 func manage_animations():
 	if !walk:
@@ -252,20 +276,6 @@ func manage_animations():
 		elif velocity.y > 0:
 			play_animation("MoveDown")
 
-func _physics_process(_delta):
-	if !walk:
-		manage_talking_animations()
-		return
-	
-	var target = patrol_points[patrol_index]
-	if position.distance_to(target) < 1:
-		patrol_index = wrapi(patrol_index + 1, 0, patrol_points.size())
-		target = patrol_points[patrol_index]
-
-	velocity = (target - position).normalized()
-	velocity = move_and_slide(velocity * moveSpeed)
-	manage_animations()
-	hide_cloud()
 
 # FOR CLICK AND MOVE!
 func _on_NPC_input_event(_vieuwport, event, _shape_idx):

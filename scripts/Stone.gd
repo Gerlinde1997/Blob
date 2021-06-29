@@ -2,8 +2,8 @@ extends Node2D
 
 onready var coins = get_tree().get_nodes_in_group("coins")
 
+
 func _ready():
-	
 	if GlobalVariables.animation:
 		$Player/AnimatedSprite.animation = GlobalVariables.animation
 
@@ -13,6 +13,7 @@ func _ready():
 	for coin in coins:
 		if coin.get_path() in GlobalVariables.picked_coins:
 			coin.queue_free()
+
 
 func _input(event):
 	if event.is_action_pressed("help"):
