@@ -16,27 +16,28 @@ Blob is my first own (RPG) game. I started with making a game because I wanted t
 
 -----------------------------
 ## Usage
--> zipje downloaden oid?
+-> github releases/portable version
 
 -----------------------------
 ## Roadmap
--> Improve en add more consistany in Graphic elements
+-> Improve en add more consistancy in Graphic elements
 
 -----------------------------
 ## Credits
-https://www.davidepesce.com/godot-tutorials/
-Part 14: NPC’s, Quests and Dialogues, 
-Part 7: Using tile maps to create a game map
+I inspired my dialogue system en the use of a tileset on this tutorials:  
+    - Part 14: NPC’s, Quests and Dialogues  
+    - Part 7: Using tile maps to create a game map  
+From: https://www.davidepesce.com/godot-tutorials/
 
-Font:
+I used this beautiful font throughout the entire game:
 Rose Cake Font
-Typhoon Type™ - Suthi Srisopha
 http://www.typhoontype.net/fonts/Rose-Cake/
+Typhoon Type™ - Suthi Srisopha
 
-
-Sprites I used for the tilemap
+I used this set of game assets for the tilemaps:
 https://kenney.nl/assets/rpg-base
 
 -----------------------------
 ## License
-?
+GNU General Public License v3.0 or later
+??see COPYING file

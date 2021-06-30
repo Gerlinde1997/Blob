@@ -1,5 +1,8 @@
 extends Control
 
+## Copyright (C) 2021 Gerlinde van Ginkel
+## SPDX-License-Identifier: GPL-3.0-or-later
+
 func _input(event):
 	if event.is_action_pressed("start"):
 		_on_Start_wsad_pressed()
@@ -9,7 +12,6 @@ func _input(event):
 
 func _on_Start_wsad_pressed():
 	GlobalVariables.chosen_input = "wsad"
-	#var _to_grass = get_tree().change_scene("res://Grass.tscn")
 	SceneChanger.goto_scene("res://Grass.tscn")
 
 
