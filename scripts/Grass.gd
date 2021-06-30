@@ -1,5 +1,8 @@
 extends Node2D
 
+## Copyright (C) 2021 Gerlinde van Ginkel
+## SPDX-License-Identifier: GPL-3.0-or-later
+
 onready var coins = get_tree().get_nodes_in_group("coins")
 onready var shovel = $Shovel
 

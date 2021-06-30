@@ -1,6 +1,8 @@
 extends Node
 
 ## Stores all variables needed for loading another room
+## Copyright (C) 2021 Gerlinde van Ginkel
+## SPDX-License-Identifier: GPL-3.0-or-later
 
 # chosen input "wsad" or "click_move"
 var chosen_input

@@ -1,5 +1,8 @@
 extends Control
 
+## Copyright (C) 2021 Gerlinde van Ginkel
+## SPDX-License-Identifier: GPL-3.0-or-later
+
 const RED = Color(1, 0, 0, 0.2)
 const ORANGE = Color(0.9, 0.5, 0, 0.2)
 const YELLOW = Color(1, 1, 0, 0.2)

@@ -1,5 +1,8 @@
 extends Area2D
 
+## Copyright (C) 2021 Gerlinde van Ginkel
+## SPDX-License-Identifier: GPL-3.0-or-later
+
 var dirt = preload("res://Sprites/hollow_64x64.png")
 var mark = preload("res://Sprites/exclamation_mark32x32.png")
 var shovel = preload("res://Sprites/mark_shovel.png")

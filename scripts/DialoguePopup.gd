@@ -1,5 +1,8 @@
 extends Control
 
+## Copyright (C) 2021 Gerlinde van Ginkel
+## SPDX-License-Identifier: GPL-3.0-or-later
+
 var npc_name setget set_name
 var dialogue_text setget set_dialogue
 var answer_1 setget set_answer_1

@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+## Copyright (C) 2021 Gerlinde van Ginkel
+## SPDX-License-Identifier: GPL-3.0-or-later
+
 # WSAD
 var velocity = Vector2()
 var facingDir = Vector2()
