@@ -17,11 +17,11 @@ Blob is my first own (RPG) game. I started with making a game because I wanted t
 -----------------------------
 ## Usage
 Download from the release Blob for Windows, Blob2-emb.exe or the Blob2_portable.zip
-When you choose for the portable version, click on the file with the icon als hierboven???
+When you choose for the portable version, click on the file with the icon of the rainbow coloured Blob.
 
 -----------------------------
 ## Roadmap
-In a next version I would like to improve en add more consistancy in the graphic elements of Blob. I would like to make the whole game in Pixelart.
+In a next version I would like to improve the graphic elements and add more consistancy in the styling of Blob. I would like to make the whole game in Pixelart.
 
 -----------------------------
 ## Credits
