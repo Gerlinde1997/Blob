@@ -17,7 +17,7 @@ Blob is my first own (RPG) game. I started with making a game because I wanted t
 -----------------------------
 ## Usage
 Download from the release Blob for Windows, Blob2-emb.exe or the Blob2_portable.zip
-When you choose for the portable version, click on the file with the icon of the rainbow coloured Blob.
+When you choose for the portable version, click on the file with the icon of the rainbow coloured Blob, after unpacking the .zip.
 
 -----------------------------
 ## Roadmap
@@ -28,7 +28,6 @@ In a next version I would like to improve the graphic elements and add more cons
 - I inspired my dialogue system en the use of a tileset on this tutorials:
     - Part 14: NPC’s, Quests and Dialogues  
     - Part 7: Using tile maps to create a game map  
- 
     From: https://www.davidepesce.com/godot-tutorials/  
 
 - I used this beautiful font throughout the entire game:
