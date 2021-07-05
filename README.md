@@ -17,7 +17,7 @@ Blob is my first own (RPG) game. I started with making a game because I wanted t
 -----------------------------
 ## Usage
 Download from the release Blob for Windows, Blob2-emb.exe or the Blob2_portable.zip
-When you choose for the portable version, click on the file with the icon of the rainbow coloured Blob, after unpacking the .zip.
+When you choose the portable version, click on the file with the icon of the rainbow coloured Blob, after unpacking the .zip.
 
 -----------------------------
 ## Roadmap
